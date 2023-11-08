@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>En-Garde Appliances | Home</title>
+    <link rel="icon" type="image/x-icon" href="Images/trans1.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="index.html"><img src="Images/trans1.png" width="125px" alt></a>
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="">Contacts</a></li>
+                        <li><a href="account.html">Account</a></li>
+                        <li><button class="btn" id="myBtn"><i class="fa fa-user"></i></button></li>
+                        <div id="message">
+                            <p><span id="userName"></span></p>
+                        </div>
+                    </ul>
+                    <a href="cart.html"><img src="Images/cart.png" alt width="30px" height="30px"></a>
+                    <img src="Images/menu.png" alt="" class="menu-icon" onclick="menutoggle()">
+                </nav>
+            </div>
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div class="form-container">
+                        <div class="form-btn">
+                            <span onclick="login()">Login</span>
+                            <span onclick="register()">Register</span>
+                            <span onclick="signin()">Social</span>
+                            <hr id="Indicator">
+                        </div>
+                        <form action="" id="loginform" class="signin">
+                            <input type="email" placeholder="Enter Email">
+                            <input type="password" placeholder="Enter Password">
+                            <button type="submit" class="btn">Login</button>
+                            <a href="">Forgot Password</a>
+                            <button type="button" class="logout" id="logoutBtn"> Logout </button>
+                        </form>
+                        <form action="" id="registrationform" class="signup">
+                            <input id="email" type="email" placeholder="Email">
+                            <input id="password" type="password" placeholder="Password">
+                            <button id="btn" type="submit" class="btn">Register</button>
+                        </form>
+
+                        <div class="socials" id="socials">
+                            <button class="btn" id="signInGoogle">Sign in with Google <i
+                                    class="fa fa-google"></i></button>
+                            <button class="btn" id="signInFacebook">Sign in with Facebook <i
+                                    class="fa fa-facebook"></i></button>
+                            <button class="btn" id="signInTwitter">Sign in with Twitter <i
+                                    class="fa fa-twitter"></i></button>
+                            <button class="btn" id="signOut">Log out <i class="fa fa-sign-out"></i></button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <h1>Find What Feels Right For You!</h1>
+                    <p>Your One-Stop Shop For Everything Home and Kitchen Appliances.</p>
+                    <a href="" class="btn">Explore Now &#8594;</a>
+                </div>
+                <div class="col-2">
+                    <img src="Images/Home-Appliance-Background-PNG.png" alt>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- featured categories -->
+    <div class="categories">
+        <h2 class="title">Featured Categories</h2>
+        <div class="small-container">
+            <div class="row">
+                <div class="col-3">
+                    <img src="Images/exclusive.png" alt="">
+                </div>
+                <div class="col-3">
+                    <img src="Images/exclusive.png" alt="">
+                </div>
+                <div class="col-3">
+                    <img src="Images/exclusive.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- featured products -->
+    <div class="small-container">
+        <h2 class="title">Featured Products</h2>
+        <div class="row">
+            <div class="col-4">
+                <img src="Images/exclusive.png" alt="">
+                <h4>Product Name</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>product price</p>
+            </div>
+            <div class="col-4">
+                <img src="Images/exclusive.png" alt="">
+                <h4>Product Name</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>product price</p>
+            </div>
+            <div class="col-4">
+                <img src="Images/exclusive.png" alt="">
+                <h4>Product Name</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>product price</p>
+            </div>
+            <div class="col-4">
+                <img src="Images/exclusive.png" alt="">
+                <h4>Product Name</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>product price</p>
+            </div>
+        </div>
+        <h2 class="title">Latest Products</h2>
+        <div class="row">
+            <div class="col-4">
+                <img src="Images/exclusive.png" alt="">
+                <h4>Product Name</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>product price</p>
+            </div>
+            <div class="col-4">
+                <img src="Images/exclusive.png" alt="">
+                <h4>Product Name</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>product price</p>
+            </div>
+            <div class="col-4">
+                <img src="Images/exclusive.png" alt="">
+                <h4>Product Name</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>product price</p>
+            </div>
+            <div class="col-4">
+                <img src="Images/exclusive.png" alt="">
+                <h4>Product Name</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>product price</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <img src="Images/exclusive.png" alt="">
+                <h4>Product Name</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>product price</p>
+            </div>
+            <div class="col-4">
+                <img src="Images/exclusive.png" alt="">
+                <h4>Product Name</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>product price</p>
+            </div>
+            <div class="col-4">
+                <img src="Images/exclusive.png" alt="">
+                <h4>Product Name</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>product price</p>
+            </div>
+            <div class="col-4">
+                <img src="Images/exclusive.png" alt="">
+                <h4>Product Name</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>product price</p>
+            </div>
+        </div>
+    </div>
+    <!-- offer -->
+    <div class="offer">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-2">
+                    <img src="Images/exclusive.png" alt="" class="offer-img">
+                </div>
+                <div class="col-2">
+                    <p>Exclusively available at En-Garde Appliances</p>
+                    <h1>LG 33 inch wide French Door</h1>
+                    <small>Complete with premium and innovative features such as InstaView™ Door-in-Door, a mirrored
+                        glass panel that illuminates with two knocks and the Auto Open Door™ smart sensor that opens the
+                        appliance hands-free.</small><br>
+                    <a href="" class="btn">Buy Now &#8594;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- brands -->
+    <div class="brands">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-5">
+                    <img src="Images/samsung.png" alt="">
+                </div>
+                <div class="col-5">
+                    <img src="Images/lg.png" alt="">
+                </div>
+                <div class="col-5">
+                    <img src="Images/von.png" alt="">
+                </div>
+                <div class="col-5">
+                    <img src="Images/Lenovo-Logo-1.png" alt="">
+                </div>
+                <div class="col-5">
+                    <img src="Images/jbl logo.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download our App</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam vel magnam in molestias
+                        consectetur, error accusamus facere quia aspernatur ea unde commodi libero voluptates atque
+                        odit, maxime praesentium ut pariatur!</p>
+                    <div class="app-logo">
+                        <img src="Images/app-store.png" alt="">
+                        <img src="Images/play-store.png" alt="">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="Images/trans2.png" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam vel magnam in molestias
+                        consectetur, error accusamus facere quia aspernatur ea unde commodi libero voluptates atque
+                        odit, maxime praesentium ut pariatur!</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Return Policy</li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li>Facebok</li>
+                        <li>Twitter</li>
+                        <li>Instagram</li>
+                        <li>Youtube</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">Copyright 2023 - Klasse Softwares</p>
+        </div>
+    </div>
+    <!-- js for toggle menu -->
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle() {
+            if (MenuItems.style.maxHeight == "0px") {
+                MenuItems.style.maxHeight = "200px";
+            }
+            else {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+    </script>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle() {
+            if (MenuItems.style.maxHeight == "0px") {
+                MenuItems.style.maxHeight = "200px";
+            }
+            else {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+    </script>
+    <!-- js for toggle form -->
+    <script>
+        var loginform = document.getElementById("loginform");
+        var registrationform = document.getElementById("registrationform");
+        var socials = document.getElementById("socials");
+        var Indicator = document.getElementById("Indicator");
+
+        function register() {
+            registrationform.style.transform = "translateX(0px)";
+            loginform.style.transform = "translateX(0px)";
+            socials.style.transform = "translateX(0px)";
+            Indicator.style.transform = "translateX(100px)";
+        }
+        function login() {
+            registrationform.style.transform = "translateX(400px)";
+            loginform.style.transform = "translateX(400px)";
+            socials.style.transform = "translateX(400px)";
+            Indicator.style.transform = "translateX(0px)";
+        }
+        function signin() {
+            registrationform.style.transform = "translateX(-400px)";
+            loginform.style.transform = "translateX(-400px)";
+            socials.style.transform = "translateX(-400px)";
+            Indicator.style.transform = "translateX(210px)";
+        }
+    </script>
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+
+
+        import { getAuth, GoogleAuthProvider, TwitterAuthProvider, FacebookAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBCO209lhBLefKNqFDbvjZ6SGYfY8JrGE0",
+            authDomain: "en-garde-appliances.firebaseapp.com",
+            projectId: "en-garde-appliances",
+            storageBucket: "en-garde-appliances.appspot.com",
+            messagingSenderId: "99833960278",
+            appId: "1:99833960278:web:70f7721d2ef4d6de58a8f7",
+            measurementId: "G-82LC63MRME"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const googleProvider = new GoogleAuthProvider();
+        const twitterProvider = new TwitterAuthProvider();
+        const facebookProvider = new FacebookAuthProvider();
+
+        const signInButton = document.getElementById("signInGoogle");
+        const signInTw = document.getElementById("signInTwitter");
+        const signInFb = document.getElementById("signInFacebook")
+        const signOutButton = document.getElementById("signOut");
+        const message = document.getElementById("message");
+        const userName = document.getElementById("userName");
+
+        signOutButton.style.display = "none";
+        message.style.display = "none";
+
+        const userSignIn = async () => {
+            signInWithPopup(auth, googleProvider)
+                .then((result) => {
+                    const user = result.user
+                    console.log(user);
+                }).catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message
+                })
+        }
+        const userSignInTw = async () => {
+            signInWithPopup(auth, twitterProvider)
+            .then((result) => {
+                // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
+                // You can use these server side with your app's credentials to access the Twitter API.
+                const credential = TwitterAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                const secret = credential.secret;
+
+                // The signed-in user info.
+                const user = result.user;
+                // IdP data available using getAdditionalUserInfo(result)
+                // ...
+            }).catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.customData.email;
+                // The AuthCredential type that was used.
+                const credential = TwitterAuthProvider.credentialFromError(error);
+                // ...
+            });
+        }
+        const userSignInFb = async () => {
+            signInWithPopup(auth, facebookProvider)
+            .then((result) => {
+                
+                const credential = FacebookAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                const secret = credential.secret;
+
+                // The signed-in user info.
+                const user = result.user;
+                // IdP data available using getAdditionalUserInfo(result)
+                // ...
+            }).catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.customData.email;
+                // The AuthCredential type that was used.
+                const credential = TwitterAuthProvider.credentialFromError(error);
+                // ...
+            });
+        }
+
+        
+
+        const userSignOut = async () => {
+            signOut(auth).then(() => {
+                alert("You have signed out successfully!");
+            }).catch((error) => { })
+        }
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                signOutButton.style.display = "block";
+                message.style.display = "block";
+                userName.innerHTML = user.displayName
+            } else {
+                signOutButton.style.display = "none";
+                message.style.display = "none";
+            }
+        })
+
+        signInButton.addEventListener('click', userSignIn);
+        signInTw.addEventListener('click', userSignInTw);
+        signInFb.addEventListener('click', userSignInFb);
+        signOutButton.addEventListener('click', userSignOut);
+
+
+
+    </script>
+    <script src="bundle.js"></script>
+</body>
+
+</html>

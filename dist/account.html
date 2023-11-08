@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>En-Garde Appliances | Account</title>
+</head>
+
+<body>
+    <button id="signInButton">Create Account / Sign In</button>
+    <button id="signOutButton">Sign Out</button>
+
+    <div id="message">
+        <p>You have signed in as <span id="userName"></span> with the email <span id="userEmail"></span> </p>
+    </div>
+    <fb:login-button
+  data-auto-logout-link="true"
+  scope="public_profile,email"
+  size="large"
+></fb:login-button>
+
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+
+
+        import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBCO209lhBLefKNqFDbvjZ6SGYfY8JrGE0",
+            authDomain: "en-garde-appliances.firebaseapp.com",
+            projectId: "en-garde-appliances",
+            storageBucket: "en-garde-appliances.appspot.com",
+            messagingSenderId: "99833960278",
+            appId: "1:99833960278:web:70f7721d2ef4d6de58a8f7",
+            measurementId: "G-82LC63MRME"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const provider = new GoogleAuthProvider()
+
+        const signInButton = document.getElementById("signInButton");
+        const signOutButton = document.getElementById("signOutButton");
+        const message = document.getElementById("message");
+        const userName = document.getElementById("userName");
+        const userEmail = document.getElementById("userEmail");
+
+        signOutButton.style.display = "none";
+        message.style.display = "none";
+
+        const userSignIn = async () => {
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    const user = result.user
+                    console.log(user);
+                }).catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message
+                })
+        }
+
+        const userSignOut = async () => {
+            signOut(auth).then(() => {
+                alert("You have signed out successfully!");
+            }).catch((error) => { })
+        }
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                signOutButton.style.display = "block";
+                message.style.display = "block";
+                userName.innerHTML = user.displayName;
+                userEmail.innerHTML = user.email
+            } else {
+                signOutButton.style.display = "none";
+                message.style.display = "none";
+            }
+        })
+
+        signInButton.addEventListener('click', userSignIn);
+        signOutButton.addEventListener('click', userSignOut);
+
+
+
+    </script>
+    <script src="//connect.facebook.net/en_US/sdk.js"></script>
+    <script>
+      FB.init({
+        appId: '348477294231565',
+        status: true,
+        xfbml: true,
+        version: 'v2.6',
+      });
+      FB.Event.subscribe('auth.authResponseChange', checkLoginState);
+      import { getAuth, onAuthStateChanged, signInWithCredential, signOut, FacebookAuthProvider } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+
+function checkLoginState(response) {
+  if (response.authResponse) {
+    // User is signed-in Facebook.
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      unsubscribe();
+      // Check if we are already signed-in Firebase with the correct user.
+      if (!isUserEqual(response.authResponse, firebaseUser)) {
+        // Build Firebase credential with the Facebook auth token.
+        const credential = FacebookAuthProvider.credential(
+            response.authResponse.accessToken);
+
+        // Sign in with the credential from the Facebook user.
+        signInWithCredential(auth, credential)
+          .catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // The email of the user's account used.
+            const email = error.customData.email;
+            // The AuthCredential type that was used.
+            const credential = FacebookAuthProvider.credentialFromError(error);
+            // ...
+          });
+      } else {
+        // User is already signed-in Firebase with the correct user.
+      }
+    });
+  } else {
+    // User is signed-out of Facebook.
+    signOut(auth);
+  }
+}
+function isUserEqual(facebookAuthResponse, firebaseUser) {
+  if (firebaseUser) {
+    const providerData = firebaseUser.providerData;
+    for (let i = 0; i < providerData.length; i++) {
+      if (providerData[i].providerId === FacebookAuthProvider.PROVIDER_ID &&
+          providerData[i].uid === facebookAuthResponse.userID) {
+        // We don't need to re-auth the Firebase connection.
+        return true;
+      }
+    }
+  }
+  return false;
+}
+    </script>
+</body>
+
+</html>
