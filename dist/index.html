@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;400;700&family=Titillium+Web:wght@200;300;400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -19,23 +20,30 @@
     <div class="header">
         <div class="container">
             <div class="navbar">
-                <div class="logo">
-                    <a href="index.html"><img src="Images/trans1.png" width="125px" alt></a>
+                    <div class="logo">
+                        <a href="index.html"><img src="Images/trans1.png" width="125px" alt></a>
+                    </div>
+                <div >
+                    <div class="username" id="message">
+                        <p><span id="userName"></span></p>
+                    </div>
+                    <div>
+                        <nav>
+                            <ul id="MenuItems">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="products.html">Products</a></li>
+                                <li><a href="">Contacts</a></li>
+                                <li><a href="account.html">Account</a></li>
+                                <li><button class="btn" id="myBtn"><i class="fa fa-user"></i></button></li>
+                                <li><a id="myBtn2"><img src="Images/cart.png" alt width="30px" height="30px"></a></li>
+                                <li><button class="btn" id="signOut">Log out <i class="fa fa-sign-out"></i></button></li>
+                            </ul>
+                            
+                            <img src="Images/menu.png" alt="" class="menu-icon" onclick="menutoggle()">
+                        </nav>
+                    </div>
+                    
                 </div>
-                <nav>
-                    <ul id="MenuItems">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="">Contacts</a></li>
-                        <li><a href="account.html">Account</a></li>
-                        <li><button class="btn" id="myBtn"><i class="fa fa-user"></i></button></li>
-                        <div id="message">
-                            <p><span id="userName"></span></p>
-                        </div>
-                    </ul>
-                    <a href="cart.html"><img src="Images/cart.png" alt width="30px" height="30px"></a>
-                    <img src="Images/menu.png" alt="" class="menu-icon" onclick="menutoggle()">
-                </nav>
             </div>
             <div id="myModal" class="modal">
 
@@ -57,6 +65,7 @@
                             <button type="button" class="logout" id="logoutBtn"> Logout </button>
                         </form>
                         <form action="" id="registrationform" class="signup">
+                            <input id="name" type="text" placeholder="Name">
                             <input id="email" type="email" placeholder="Email">
                             <input id="password" type="password" placeholder="Password">
                             <button id="btn" type="submit" class="btn">Register</button>
@@ -69,12 +78,83 @@
                                     class="fa fa-facebook"></i></button>
                             <button class="btn" id="signInTwitter">Sign in with Twitter <i
                                     class="fa fa-twitter"></i></button>
-                            <button class="btn" id="signOut">Log out <i class="fa fa-sign-out"></i></button>
                         </div>
-
                     </div>
                 </div>
+            </div>
+            <div id="myModal2" class="modal2">
 
+                <!-- Modal content -->
+                <div class="modal-content2">
+                    <span class="close2">&times;</span>
+                    <div class="small-container cart-page">
+                        <table>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Sub-total</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="cart-info">
+                                        <img src="Images/exclusive.png" alt="">
+                                        <div>
+                                            <p>Fridge</p>
+                                            <small>Price: price </small><br>
+                                            <a href="">Remove</a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><input type="number" value="1"></td>
+                                <td>price</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="cart-info">
+                                        <img src="Images/exclusive.png" alt="">
+                                        <div>
+                                            <p>Fridge</p>
+                                            <small>Price: price </small><br>
+                                            <a href="">Remove</a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><input type="number" value="1"></td>
+                                <td>price</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="cart-info">
+                                        <img src="Images/exclusive.png" alt="">
+                                        <div>
+                                            <p>Fridge</p>
+                                            <small>Price: price </small><br>
+                                            <a href="">Remove</a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><input type="number" value="1"></td>
+                                <td>price</td>
+                            </tr>
+                        </table>
+                        <div class="total-price">
+                            <table>
+                                <tr>
+                                    <td>Subtotal</td>
+                                    <td>price</td>
+                                </tr>
+                                <tr>
+                                    <td>Tax</td>
+                                    <td>price</td>
+                                </tr>
+                                <tr>
+                                    <td>Total</td>
+                                    <td>price</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="row">
                 <div class="col-2">
@@ -359,21 +439,30 @@
     <script>
         // Get the modal
         var modal = document.getElementById("myModal");
+        var modal2 = document.getElementById("myModal2");
 
         // Get the button that opens the modal
         var btn = document.getElementById("myBtn");
+        var btn2 = document.getElementById("myBtn2");
 
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
+        var span2 = document.getElementsByClassName("close2")[0];
 
         // When the user clicks on the button, open the modal
         btn.onclick = function () {
             modal.style.display = "block";
         }
+        btn2.onclick = function () {
+            modal2.style.display = "block";
+        }
 
         // When the user clicks on <span> (x), close the modal
         span.onclick = function () {
             modal.style.display = "none";
+        }
+        span2.onclick = function () {
+            modal2.style.display = "none";
         }
 
         // When the user clicks anywhere outside of the modal, close it
@@ -381,7 +470,28 @@
             if (event.target == modal) {
                 modal.style.display = "none";
             }
+            else if (event.target == modal2) {
+                modal2.style.display = "none";
+            };
         }
+    </script>
+     <script>
+        // Get the modal
+        
+
+        // Get the button that opens the modal
+        
+
+        // Get the <span> element that closes the modal
+
+        // When the user clicks on the button, open the modal
+        
+
+        // When the user clicks on <span> (x), close the modal
+        
+
+        // When the user clicks anywhere outside of the modal, close it
+        
     </script>
     <script>
         var MenuItems = document.getElementById("MenuItems");
@@ -426,7 +536,10 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
 
 
-        import { getAuth, GoogleAuthProvider, TwitterAuthProvider, FacebookAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+        import { createUserWithEmailAndPassword, signInWithEmailAndPassword, 
+            getAuth, GoogleAuthProvider, TwitterAuthProvider, FacebookAuthProvider, 
+            signInWithPopup, signOut, onAuthStateChanged } 
+            from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyBCO209lhBLefKNqFDbvjZ6SGYfY8JrGE0",
@@ -444,6 +557,9 @@
         const twitterProvider = new TwitterAuthProvider();
         const facebookProvider = new FacebookAuthProvider();
 
+        const mModal2 = document.getElementById("myModal2");
+        const mModal = document.getElementById("myModal");
+        const mButton = document.getElementById("myBtn");
         const signInButton = document.getElementById("signInGoogle");
         const signInTw = document.getElementById("signInTwitter");
         const signInFb = document.getElementById("signInFacebook")
@@ -453,6 +569,34 @@
 
         signOutButton.style.display = "none";
         message.style.display = "none";
+
+        const signupForm = document.querySelector('.signup')
+        signupForm.addEventListener('submit', (e) => {
+        e.preventDefault()
+
+        const name = document.getElementById('name').value
+        const email = document.getElementById('email').value
+        const password = document.getElementById('password').value
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((cred) => {
+            console.log('user created:', cred.user)
+            signupForm.reset()
+
+            updateProfile(cred.user, {
+                displayName: name
+            }).then(() => {
+                console.log('Display name set:', name);
+                const userName = document.querySelector('.username');
+                userName.innerHTML = name;
+            }).catch((error) => {
+                console.error('Error setting display name:', error);
+            });
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+})
 
         const userSignIn = async () => {
             signInWithPopup(auth, googleProvider)
@@ -466,53 +610,51 @@
         }
         const userSignInTw = async () => {
             signInWithPopup(auth, twitterProvider)
-            .then((result) => {
-                // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
-                // You can use these server side with your app's credentials to access the Twitter API.
-                const credential = TwitterAuthProvider.credentialFromResult(result);
-                const token = credential.accessToken;
-                const secret = credential.secret;
+                .then((result) => {
+                    // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
+                    // You can use these server side with your app's credentials to access the Twitter API.
+                    const credential = TwitterAuthProvider.credentialFromResult(result);
+                    const token = credential.accessToken;
+                    const secret = credential.secret;
 
-                // The signed-in user info.
-                const user = result.user;
-                // IdP data available using getAdditionalUserInfo(result)
-                // ...
-            }).catch((error) => {
-                // Handle Errors here.
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // The email of the user's account used.
-                const email = error.customData.email;
-                // The AuthCredential type that was used.
-                const credential = TwitterAuthProvider.credentialFromError(error);
-                // ...
-            });
+                    // The signed-in user info.
+                    const user = result.user;
+                    // IdP data available using getAdditionalUserInfo(result)
+                    // ...
+                }).catch((error) => {
+                    // Handle Errors here.
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // The email of the user's account used.
+                    const email = error.customData.email;
+                    // The AuthCredential type that was used.
+                    const credential = TwitterAuthProvider.credentialFromError(error);
+                    // ...
+                });
         }
         const userSignInFb = async () => {
             signInWithPopup(auth, facebookProvider)
-            .then((result) => {
-                
-                const credential = FacebookAuthProvider.credentialFromResult(result);
-                const token = credential.accessToken;
-                const secret = credential.secret;
+                .then((result) => {
 
-                // The signed-in user info.
-                const user = result.user;
-                // IdP data available using getAdditionalUserInfo(result)
-                // ...
-            }).catch((error) => {
-                // Handle Errors here.
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // The email of the user's account used.
-                const email = error.customData.email;
-                // The AuthCredential type that was used.
-                const credential = TwitterAuthProvider.credentialFromError(error);
-                // ...
-            });
+                    const credential = FacebookAuthProvider.credentialFromResult(result);
+                    const token = credential.accessToken;
+                    const secret = credential.secret;
+
+                    // The signed-in user info.
+                    const user = result.user;
+                    // IdP data available using getAdditionalUserInfo(result)
+                    // ...
+                }).catch((error) => {
+                    // Handle Errors here.
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // The email of the user's account used.
+                    const email = error.customData.email;
+                    // The AuthCredential type that was used.
+                    const credential = TwitterAuthProvider.credentialFromError(error);
+                    // ...
+                });
         }
-
-        
 
         const userSignOut = async () => {
             signOut(auth).then(() => {
@@ -520,23 +662,62 @@
             }).catch((error) => { })
         }
 
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                signOutButton.style.display = "block";
-                message.style.display = "block";
-                userName.innerHTML = user.displayName
-            } else {
-                signOutButton.style.display = "none";
-                message.style.display = "none";
-            }
-        })
+        var cartButton = document.getElementById("myBtn2");
+
+        cartButton.addEventListener('click', function() {
+        // Check if the user is signed in
+        var user = auth.currentUser;
+
+        if (user) {
+            modal2.style.display = "block";
+        } else {
+            alert("You need to sign in first to access the cart!");
+            modal2.style.display = "none";
+        }
+    });
+
+    onAuthStateChanged(auth, (user) => {
+    if (user) {
+        signOutButton.style.display = "block";
+        message.style.display = "block";
+        mButton.style.display = "none";
+        mModal.style.display = "none";
+
+        const providerLogo = user.providerData[0].providerId.split('.')[0]; // Extract the provider name (google, facebook, twitter)
+        let logoIconClass;
+
+        switch (providerLogo) {
+            case "google":
+                logoIconClass = "fa fa-google"; // Font Awesome class for Google icon
+                break;
+            case "facebook":
+                logoIconClass = "fa fa-facebook"; // Font Awesome class for Facebook icon
+                break;
+            case "twitter":
+                logoIconClass = "fa fa-twitter"; // Font Awesome class for Twitter icon
+                break;
+            default:
+                logoIconClass = "fa fa-envelope"; // Default user icon (You can change this to any other default icon)
+                break;
+        }
+
+        userName.innerHTML = `<div class="user-info" style="display: flex; align-items: center; justify-content: space-between">
+                <div class="user1-icon" style="margin-right: 10px; font-size: 30px;"><i class="fa fa-user"></i></div>
+                <div class="user-icon" style="margin-right: 10px; font-size: 30px;"><i class="${logoIconClass}"></i></div>
+                <div class="username" style="margin-left: auto;">${user.displayName}</div>
+            </div>`;
+            
+    } else {
+        signOutButton.style.display = "none";
+        message.style.display = "none";
+        mButton.style.display = "block";
+    }
+});
 
         signInButton.addEventListener('click', userSignIn);
         signInTw.addEventListener('click', userSignInTw);
         signInFb.addEventListener('click', userSignInFb);
         signOutButton.addEventListener('click', userSignOut);
-
-
 
     </script>
     <script src="bundle.js"></script>

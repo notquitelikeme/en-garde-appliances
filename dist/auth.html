@@ -1,0 +1,163 @@
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close2">&times;</span>
+        <div class="form-container">
+            <div class="form-btn">
+                <span onclick="login()">Login</span>
+                <span onclick="register()">Register</span>
+                <span onclick="signin()">Social</span>
+                <hr id="Indicator">
+            </div>
+            <form action="" id="loginform" class="signin">
+                <input type="email" placeholder="Enter Email">
+                <input type="password" placeholder="Enter Password">
+                <button type="submit" class="btn">Login</button>
+                <a href="">Forgot Password</a>
+                <button type="button" class="logout" id="logoutBtn"> Logout </button>
+            </form>
+            <form action="" id="registrationform" class="signup">
+                <input id="email" type="email" placeholder="Email">
+                <input id="password" type="password" placeholder="Password">
+                <button id="btn" type="submit" class="btn">Register</button>
+            </form>
+
+            <div class="socials" id="socials">
+                <button class="btn" id="signInGoogle">Sign in with Google <i
+                        class="fa fa-google"></i></button>
+                <button class="btn" id="signInFacebook">Sign in with Facebook <i
+                        class="fa fa-facebook"></i></button>
+                <button class="btn" id="signInTwitter">Sign in with Twitter <i
+                        class="fa fa-twitter"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="myModal2" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="small-container cart-page">
+            <table>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Sub-total</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="cart-info">
+                            <img src="Images/exclusive.png" alt="">
+                            <div>
+                                <p>Fridge</p>
+                                <small>Price: price </small><br>
+                                <a href="">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td><input type="number" value="1"></td>
+                    <td>price</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="cart-info">
+                            <img src="Images/exclusive.png" alt="">
+                            <div>
+                                <p>Fridge</p>
+                                <small>Price: price </small><br>
+                                <a href="">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td><input type="number" value="1"></td>
+                    <td>price</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="cart-info">
+                            <img src="Images/exclusive.png" alt="">
+                            <div>
+                                <p>Fridge</p>
+                                <small>Price: price </small><br>
+                                <a href="">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td><input type="number" value="1"></td>
+                    <td>price</td>
+                </tr>
+            </table>
+            <div class="total-price">
+                <table>
+                    <tr>
+                        <td>Subtotal</td>
+                        <td>price</td>
+                    </tr>
+                    <tr>
+                        <td>Tax</td>
+                        <td>price</td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td>price</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+    var modal2 = document.getElementById("myModal2");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+    var btn = document.getElementById("myBtn2");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+    btn.onclick = function () {
+        modal2.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+    span.onclick = function () {
+        modal2.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    window.onclick = function (event) {
+        if (event.target == modal2) {
+            modal2.style.display = "none";
+        }
+    }
+</script>
+var cartButton = document.getElementById("myBtn2");
+
+        cartButton.addEventListener('click', function() {
+        // Check if the user is signed in
+        var user = auth.currentUser;
+
+        if (user) {
+            modal2.style.display = "block";
+        } else {
+            alert("You need to sign in first to access the cart!");
+            modal2.style.display = "none";
+        }
+    });

@@ -4,13 +4,18 @@
     box-sizing: border-box;
 }
 body{
-    font-family: 'Poppins', sans-serif;
-    /* background: radial-gradient(#ffffff,#34bbfa); */
+    font-family: 'Outfit', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
+}
+.username{
+    text-align: right;
+    margin-bottom: 10px;
 }
 .navbar{
     display: flex;
     align-items: center;
     padding: 20px;
+    justify-content: space-between;
 }
 nav{
     flex: 1;
@@ -65,9 +70,11 @@ p{
     margin: 30px 0;
     border-radius: 30px;
     transition: background 0.5s;
+    border: none;
 }
 .btn:hover{
     background: #ffffff;
+    border: none;
 }
 .logout{
     display: inline-block;
@@ -423,17 +430,6 @@ form .btn{
     cursor: pointer;
     margin: 10px 0;
 }
-/* .socials {
-    position: relative;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .socials button {
-    display: block;
-    margin-bottom: 10px;
-  } */
 #signInGoogle{
     color: #ffffff;
     background: #000000;
@@ -513,21 +509,50 @@ form a{
     width: 40%; /* Could be more or less, depending on screen size */
     height: 68%;
   }
+  .modal2 {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(255, 255, 255); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    transition: transform 1s;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content2 {
+    background-color: #ffffff;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    width: 40%; /* Could be more or less, depending on screen size */
+    height: 100%;
+  }
   
   /* The Close Button */
-  .close {
+  .close, .close2 {
     color: #002383;
     float: right;
     font-size: 28px;
     font-weight: bold;
   }
   
-  .close:hover,
-  .close:focus {
-    color: #ffffff;
+  .close:hover, .close2:hover,
+  .close:focus, .close2:focus {
+    color: #34bbfa;
     text-decoration: none;
     cursor: pointer;
   }
+#message{
+    background-color: #34bbfac3;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 8px 30px;
+    margin: 30px 0;
+}
 #myBtn{
     border: none;
 }
