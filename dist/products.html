@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>En-Garde Appliances | Products</title>
-    <link rel="icon" type="image/x-icon" href="Images/trans1.png">
+    <link rel="icon" type="image/x-icon" href="Images/trans3.png">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,21 +18,145 @@
 
 <body>
     <div class="container">
-        <div class="navbar">
-            <div class="logo">
-                <a href="index.html"><img src="Images/trans1.png" width="125px" alt></a>
+        <div class="header">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="index.html"><img src="Images/trans3.png" width="125px" alt></a>
+                </div>
+                <div>
+                    <div class="username" id="message">
+                        <p><span id="userName"></span></p>
+                    </div>
+                    <div>
+                        <nav>
+                            <ul id="MenuItems">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="products.html">Products</a></li>
+                                <li><a href="">Contacts</a></li>
+                                <li><a href="account.html">Account</a></li>
+                                <li><button class="btn" id="myBtn"><i class="fa fa-user"></i></button></li>
+                                <li><a id="myBtn2"><img src="Images/cart1.png" alt width="30px" height="30px"></a></li>
+                                <li><button class="btn" id="signOut">Log out <i class="fa fa-sign-out"></i></button>
+                                </li>
+                            </ul>
+
+                            <img src="Images/menu.png" alt="" class="menu-icon" onclick="menutoggle()">
+                        </nav>
+                    </div>
+
+                </div>
             </div>
-            <nav>
-                <ul id="MenuItems">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href>About</a></li>
-                    <li><a href>Contacts</a></li>
-                    <li><a href="account.html">Account</a></li>
-                </ul>
-            </nav>
-            <a href="cart.html"><img src="Images/cart.png" alt width="30px" height="30px"></a>
-            <img src="Images/menu.png" alt="" class="menu-icon" onclick="menutoggle()">
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div class="form-container">
+                        <div class="form-btn">
+                            <span onclick="login()">Login</span>
+                            <span onclick="register()">Register</span>
+                            <span onclick="signin()">Social</span>
+                            <hr id="Indicator">
+                        </div>
+                        <form action="" id="loginform" class="signin">
+                            <input type="email" placeholder="Enter Email">
+                            <input type="password" placeholder="Enter Password">
+                            <button type="submit" class="btn">Login</button>
+                            <a href="">Forgot Password</a>
+                            <button type="button" class="logout" id="logoutBtn"> Logout </button>
+                        </form>
+                        <form action="" id="registrationform" class="signup">
+                            <input id="name" type="text" placeholder="Name">
+                            <input id="email" type="email" placeholder="Email">
+                            <input id="password" type="password" placeholder="Password">
+                            <button id="btn" type="submit" class="btn">Register</button>
+                        </form>
+
+                        <div class="socials" id="socials">
+                            <button class="btn" id="signInGoogle">Sign in with Google <i
+                                    class="fa fa-google"></i></button>
+                            <button class="btn" id="signInFacebook">Sign in with Facebook <i
+                                    class="fa fa-facebook"></i></button>
+                            <button class="btn" id="signInTwitter">Sign in with Twitter <i
+                                    class="fa fa-twitter"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="myModal2" class="modal2">
+
+                <!-- Modal content -->
+                <div class="modal-content2">
+                    <span class="close2">&times;</span>
+                    <div class="small-container cart-page">
+                        <table>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Sub-total</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="cart-info">
+                                        <img src="Images/exclusive.png" alt="">
+                                        <div>
+                                            <p>Fridge</p>
+                                            <small>Price: price </small><br>
+                                            <a href="">Remove</a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><input type="number" value="1"></td>
+                                <td>price</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="cart-info">
+                                        <img src="Images/exclusive.png" alt="">
+                                        <div>
+                                            <p>Fridge</p>
+                                            <small>Price: price </small><br>
+                                            <a href="">Remove</a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><input type="number" value="1"></td>
+                                <td>price</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="cart-info">
+                                        <img src="Images/exclusive.png" alt="">
+                                        <div>
+                                            <p>Fridge</p>
+                                            <small>Price: price </small><br>
+                                            <a href="">Remove</a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><input type="number" value="1"></td>
+                                <td>price</td>
+                            </tr>
+                        </table>
+                        <div class="total-price">
+                            <table>
+                                <tr>
+                                    <td>Subtotal</td>
+                                    <td>price</td>
+                                </tr>
+                                <tr>
+                                    <td>Tax</td>
+                                    <td>price</td>
+                                </tr>
+                                <tr>
+                                    <td>Total</td>
+                                    <td>price</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="small-container">
@@ -46,55 +170,7 @@
                 <option value="">Sort by Sales</option>
             </select>
         </div>
-        <div class="row">
-            <div class="col-4">
-                <img src="Images/exclusive.png" alt="">
-                <h4>Product Name</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>product price</p>
-            </div>
-            <div class="col-4">
-                <img src="Images/exclusive.png" alt="">
-                <h4>Product Name</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>product price</p>
-            </div>
-            <div class="col-4">
-                <img src="Images/exclusive.png" alt="">
-                <h4>Product Name</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>product price</p>
-            </div>
-            <div class="col-4">
-                <img src="Images/exclusive.png" alt="">
-                <h4>Product Name</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>product price</p>
-            </div>
+        <div class="row" id="all-products">
         </div>
         <div class="page-btn">
             <span>1</span>
@@ -119,7 +195,7 @@
                     </div>
                 </div>
                 <div class="footer-col-2">
-                    <img src="Images/trans2.png" alt="">
+                    <img src="Images/trans3.png" alt="">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam vel magnam in molestias
                         consectetur, error accusamus facere quia aspernatur ea unde commodi libero voluptates atque
                         odit, maxime praesentium ut pariatur!</p>
@@ -160,6 +236,297 @@
             }
         }
     </script>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        var modal2 = document.getElementById("myModal2");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+        var btn2 = document.getElementById("myBtn2");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        var span2 = document.getElementsByClassName("close2")[0];
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+        btn2.onclick = function () {
+            modal2.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+        span2.onclick = function () {
+            modal2.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+            else if (event.target == modal2) {
+                modal2.style.display = "none";
+            };
+        }
+    </script>
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle() {
+            if (MenuItems.style.maxHeight == "0px") {
+                MenuItems.style.maxHeight = "200px";
+            }
+            else {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+    </script>
+    <!-- js for toggle form -->
+    <script>
+        var loginform = document.getElementById("loginform");
+        var registrationform = document.getElementById("registrationform");
+        var socials = document.getElementById("socials");
+        var Indicator = document.getElementById("Indicator");
+
+        function register() {
+            registrationform.style.transform = "translateX(0px)";
+            loginform.style.transform = "translateX(0px)";
+            socials.style.transform = "translateX(0px)";
+            Indicator.style.transform = "translateX(100px)";
+        }
+        function login() {
+            registrationform.style.transform = "translateX(400px)";
+            loginform.style.transform = "translateX(400px)";
+            socials.style.transform = "translateX(400px)";
+            Indicator.style.transform = "translateX(0px)";
+        }
+        function signin() {
+            registrationform.style.transform = "translateX(-400px)";
+            loginform.style.transform = "translateX(-400px)";
+            socials.style.transform = "translateX(-400px)";
+            Indicator.style.transform = "translateX(210px)";
+        }
+    </script>
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+
+        import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+
+        import {
+            createUserWithEmailAndPassword, signInWithEmailAndPassword,
+            getAuth, GoogleAuthProvider, TwitterAuthProvider, FacebookAuthProvider,
+            signInWithPopup, signOut, onAuthStateChanged
+        }
+            from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBCO209lhBLefKNqFDbvjZ6SGYfY8JrGE0",
+            authDomain: "en-garde-appliances.firebaseapp.com",
+            projectId: "en-garde-appliances",
+            storageBucket: "en-garde-appliances.appspot.com",
+            messagingSenderId: "99833960278",
+            appId: "1:99833960278:web:70f7721d2ef4d6de58a8f7",
+            measurementId: "G-82LC63MRME"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const db = getFirestore(app);
+        const googleProvider = new GoogleAuthProvider();
+        const twitterProvider = new TwitterAuthProvider();
+        const facebookProvider = new FacebookAuthProvider();
+
+        const mModal2 = document.getElementById("myModal2");
+        const mModal = document.getElementById("myModal");
+        const mButton = document.getElementById("myBtn");
+        const signInButton = document.getElementById("signInGoogle");
+        const signInTw = document.getElementById("signInTwitter");
+        const signInFb = document.getElementById("signInFacebook")
+        const signOutButton = document.getElementById("signOut");
+        const message = document.getElementById("message");
+        const userName = document.getElementById("userName");
+
+        const querySnapshot = await getDocs(collection(db, "TVs"));
+        const allProducts = document.getElementById('all-products');
+
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+            allProducts.innerHTML += `<div class="col-3">
+                <img src="${data.image1}" width="120%" height="120%" >
+                <h4><a href="product-details.html?id=${doc.id}">${doc.id}</a></h4>
+                <h5>${data.Brand}</h5>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>Price: ${data.Price}</p>
+            </div>`
+        });
+
+        signOutButton.style.display = "none";
+        message.style.display = "none";
+
+        const signupForm = document.querySelector('.signup')
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault()
+
+            const name = document.getElementById('name').value
+            const email = document.getElementById('email').value
+            const password = document.getElementById('password').value
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((cred) => {
+                    console.log('user created:', cred.user)
+                    signupForm.reset()
+
+                    updateProfile(cred.user, {
+                        displayName: name
+                    }).then(() => {
+                        console.log('Display name set:', name);
+                        const userName = document.querySelector('.username');
+                        userName.innerHTML = name;
+                    }).catch((error) => {
+                        console.error('Error setting display name:', error);
+                    });
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        })
+
+        const userSignIn = async () => {
+            signInWithPopup(auth, googleProvider)
+                .then((result) => {
+                    const user = result.user
+                    console.log(user);
+                }).catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message
+                })
+        }
+        const userSignInTw = async () => {
+            signInWithPopup(auth, twitterProvider)
+                .then((result) => {
+                    // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
+                    // You can use these server side with your app's credentials to access the Twitter API.
+                    const credential = TwitterAuthProvider.credentialFromResult(result);
+                    const token = credential.accessToken;
+                    const secret = credential.secret;
+
+                    // The signed-in user info.
+                    const user = result.user;
+                    // IdP data available using getAdditionalUserInfo(result)
+                    // ...
+                }).catch((error) => {
+                    // Handle Errors here.
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // The email of the user's account used.
+                    const email = error.customData.email;
+                    // The AuthCredential type that was used.
+                    const credential = TwitterAuthProvider.credentialFromError(error);
+                    // ...
+                });
+        }
+        const userSignInFb = async () => {
+            signInWithPopup(auth, facebookProvider)
+                .then((result) => {
+
+                    const credential = FacebookAuthProvider.credentialFromResult(result);
+                    const token = credential.accessToken;
+                    const secret = credential.secret;
+
+                    // The signed-in user info.
+                    const user = result.user;
+                    // IdP data available using getAdditionalUserInfo(result)
+                    // ...
+                }).catch((error) => {
+                    // Handle Errors here.
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // The email of the user's account used.
+                    const email = error.customData.email;
+                    // The AuthCredential type that was used.
+                    const credential = TwitterAuthProvider.credentialFromError(error);
+                    // ...
+                });
+        }
+
+        const userSignOut = async () => {
+            signOut(auth).then(() => {
+                alert("You have signed out successfully!");
+            }).catch((error) => { })
+        }
+
+        var cartButton = document.getElementById("myBtn2");
+
+        cartButton.addEventListener('click', function () {
+            // Check if the user is signed in
+            var user = auth.currentUser;
+
+            if (user) {
+                modal2.style.display = "block";
+            } else {
+                alert("You need to sign in first to access the cart!");
+                modal2.style.display = "none";
+            }
+        });
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                signOutButton.style.display = "block";
+                message.style.display = "block";
+                mButton.style.display = "none";
+                mModal.style.display = "none";
+
+                const providerLogo = user.providerData[0].providerId.split('.')[0]; // Extract the provider name (google, facebook, twitter)
+                let logoIconClass;
+
+                switch (providerLogo) {
+                    case "google":
+                        logoIconClass = "fa fa-google"; // Font Awesome class for Google icon
+                        break;
+                    case "facebook":
+                        logoIconClass = "fa fa-facebook"; // Font Awesome class for Facebook icon
+                        break;
+                    case "twitter":
+                        logoIconClass = "fa fa-twitter"; // Font Awesome class for Twitter icon
+                        break;
+                    default:
+                        logoIconClass = "fa fa-envelope"; // Default user icon (You can change this to any other default icon)
+                        break;
+                }
+
+                userName.innerHTML = `<div class="user-info" style="display: flex; align-items: center; justify-content: space-between">
+                <div class="user1-icon" style="margin-right: 10px; font-size: 30px;"><i class="fa fa-user"></i></div>
+                <div class="user-icon" style="margin-right: 10px; font-size: 30px;"><i class="${logoIconClass}"></i></div>
+                <div class="username" style="margin-left: auto;">${user.displayName}</div>
+            </div>`;
+
+            } else {
+                signOutButton.style.display = "none";
+                message.style.display = "none";
+                mButton.style.display = "block";
+            }
+        });
+
+        signInButton.addEventListener('click', userSignIn);
+        signInTw.addEventListener('click', userSignInTw);
+        signInFb.addEventListener('click', userSignInFb);
+        signOutButton.addEventListener('click', userSignOut);
+
+    </script>
+    <script src="bundle.js"></script>
 </body>
 
 </html>
