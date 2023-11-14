@@ -50,7 +50,10 @@
 
                 <!-- Modal content -->
                 <div class="modal-content">
-                    <span class="close">&times;</span>
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2>Account</h2>
+                    </div>
                     <div class="form-container">
                         <div class="form-btn">
                             <span onclick="login()">Login</span>
@@ -168,58 +171,12 @@
     <div class="small-container">
         <div class="row row-2">
             <h2>Related Products</h2>
-            <p>view more</p>
+            <p><a href="products.html">view more</a></p>
         </div>
     </div>
     <div class="small-container">
         <div class="row">
-            <div class="col-4">
-                <img src="Images/exclusive.png" alt="">
-                <h4>Product Name</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>product price</p>
-            </div>
-            <div class="col-4">
-                <img src="Images/exclusive.png" alt="">
-                <h4>Product Name</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>product price</p>
-            </div>
-            <div class="col-4">
-                <img src="Images/exclusive.png" alt="">
-                <h4>Product Name</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>product price</p>
-            </div>
-            <div class="col-4">
-                <img src="Images/exclusive.png" alt="">
-                <h4>Product Name</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>product price</p>
+            <div class="col-3" id="related">
             </div>
         </div>
     </div>
@@ -396,44 +353,90 @@
         const message = document.getElementById("message");
         const userName = document.getElementById("userName");
 
-        const querySnapshot = await getDocs(collection(db, "TVs"));
+        const relatedProducts = document.getElementById("related")
         const singleProduct = document.getElementById('single-product');
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
 
-        querySnapshot.forEach((doc) => {
-            const data = doc.data();
-            singleProduct.innerHTML = `<div class="col-2">
+        const collectionNames = ['TVs', 'Phones', 'Fridges'];
+
+        let productFound = false;
+
+        for (const collectionName of collectionNames) {
+            const querySnapshot = await getDocs(collection(db, collectionName));
+            
+
+            if (!querySnapshot.empty) {
+                const doc = querySnapshot.docs.find(doc => doc.id === productId);
+
+                if (doc) {
+                    const data = doc.data();
+
+                    // Set content for single product
+                    singleProduct.innerHTML = `<div class="col-2">
                 <img src="${data.image1}" alt="" width="80%" id="ProductImg">
-                <div class="small-img-row">
-                    <div class="small-img-col">
-                        <img src="${data.image1}" width="100%" class="small-img">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="${data.image2}" width="100%" class="small-img">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="${data.image3}" width="100%" class="small-img">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="${data.image4}" width="100%" class="small-img">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="${data.image5}" width="100%" class="small-img">
-                    </div>
+        <div class="small-img-row">
+          <div class="small-img-col">
+            <img src="${data.image1}" width="100%" class="small-img">
+          </div>
+          <div class="small-img-col">
+            <img src="${data.image2}" width="100%" class="small-img">
+          </div>
+          <div class="small-img-col">
+            <img src="${data.image3}" width="100%" class="small-img">
+          </div>
+          <div class="small-img-col">
+            <img src="${data.image4}" width="100%" class="small-img">
+          </div>
+          <div class="small-img-col">
+            <img src="${data.image5}" width="100%" class="small-img">
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <p>Home/${collectionName}</p>
+        <h1>${doc.id}</h1>
+        <h5>Colour: ${data.Colour}</h5>
+        <h5>Size: ${data.Size}</h5>
+        <h4>Price: KES ${data.Price.toLocaleString()}</h4>
+        <h5>Tax: KES ${(data.Price * 0.0005).toFixed(2)}</h5>
+        <input type="number" value="1">
+        <a href="" class="btn">Add to Cart</a>
+        <h3>Product Details <i class="fa fa-indent"></i></h3>
+        <br>
+        <p>${data.Details}</p>
+            </div>`;
+
+                    // Set content for related products
+                    relatedProducts.innerHTML += `
+                    <div>
+                <img src="${data.image1}" alt="">
+                <h4>${doc.id}</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
                 </div>
-            </div>
-            <div class="col-2">
-                <p>collection name</p>
-                <h1>${doc.id}</h1>
-                <h4>${data.Price}</h4>
-                <input type="number" value="1">
-                <a href="" class="btn">Add to Cart</a>
-                <h3>Product Details <i class="fa fa-indent"></i></h3>
-                <br>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit cupiditate porro aspernatur vel et
-                    deserunt nobis temporibus quis vitae, dolores minima quas quibusdam est nihil delectus natus quos?
-                    Sed, nam.</p>
-            </div>`
-        });
+                <p>KES ${data.Price.toLocaleString()}</p> 
+                </div>`;
+
+                    // Product found, set the flag to true
+                    productFound = true;
+
+                    // Exit the loop since we found the product
+                    break;
+                }
+            }
+        }
+
+        // Handle the case where the product with the given ID does not exist
+        if (!productFound) {
+            console.error('Product not found');
+        }
+
+
         var ProductImg = document.getElementById("ProductImg");
         var SmallImg = document.getElementsByClassName("small-img");
         SmallImg[0].onclick = function () {

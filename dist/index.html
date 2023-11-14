@@ -45,7 +45,10 @@
                                 <li><a href="account.html">Account</a></li>
                                 <li><button class="btn" id="myBtn"><i class="fa fa-user"></i></button></li>
                             </ul>
-                            <a id="myBtn2"><img src="Images/cart1.png" alt width="30px" height="30px"></a>
+                            <a id="myBtn2">
+                                <div id="cartAmount" class="cartAmount">0</div><img src="Images/cart1.png" alt
+                                    width="30px" height="30px">
+                            </a>
                             <img src="Images/menu.png" alt="" class="menu-icon" onclick="menutoggle()">
                         </nav>
                     </div>
@@ -110,134 +113,12 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="Images/exclusive.png" alt="">
-                                            <div>
-                                                <p>Fridge</p>
-                                                <small>Price: price </small><br>
-                                                <a href="">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><input type="number" value="1"></td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="Images/exclusive.png" alt="">
-                                            <div>
-                                                <p>Fridge</p>
-                                                <small>Price: price </small><br>
-                                                <a href="">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><input type="number" value="1"></td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="Images/exclusive.png" alt="">
-                                            <div>
-                                                <p>Fridge</p>
-                                                <small>Price: price </small><br>
-                                                <a href="">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><input type="number" value="1"></td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="Images/exclusive.png" alt="">
-                                            <div>
-                                                <p>Fridge</p>
-                                                <small>Price: price </small><br>
-                                                <a href="">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><input type="number" value="1"></td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="Images/exclusive.png" alt="">
-                                            <div>
-                                                <p>Fridge</p>
-                                                <small>Price: price </small><br>
-                                                <a href="">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><input type="number" value="1"></td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="Images/exclusive.png" alt="">
-                                            <div>
-                                                <p>Fridge</p>
-                                                <small>Price: price </small><br>
-                                                <a href="">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><input type="number" value="1"></td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="Images/exclusive.png" alt="">
-                                            <div>
-                                                <p>Fridge</p>
-                                                <small>Price: price </small><br>
-                                                <a href="">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><input type="number" value="1"></td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="Images/exclusive.png" alt="">
-                                            <div>
-                                                <p>Fridge</p>
-                                                <small>Price: price </small><br>
-                                                <a href="">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><input type="number" value="1"></td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="Images/exclusive.png" alt="">
-                                            <div>
-                                                <p>Fridge</p>
-                                                <small>Price: price </small><br>
-                                                <a href="">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><input type="number" value="1"></td>
-                                    <td>price</td>
+                                    <div id="cart-info">
+                                    </div>
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="total-price">
+                        <div class="total-price" id="total-price">
                             <table>
                                 <tr>
                                     <td>Subtotal</td>
@@ -258,6 +139,7 @@
             </div>
         </div>
     </div>
+    <br><br><br>
     <div class="container">
         <div class="row">
             <div class="col-2">
@@ -273,19 +155,17 @@
     <!-- featured categories -->
     <div class="categories">
         <h2 class="title">Featured Categories</h2>
-        <div class="small-container">
-            <div class="row">
-                <div class="col-3">
-                    <img src="Images/exclusive.png" alt="">
-                </div>
-                <div class="col-3">
-                    <img src="Images/exclusive.png" alt="">
-                </div>
-                <div class="col-3">
-                    <img src="Images/exclusive.png" alt="">
+        <div id="category">
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="Images/exclusive.png" alt="">
+                        <h3>TVs</h3>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
     <!-- featured products -->
     <div class="small-container">
@@ -293,125 +173,18 @@
         <div class="row" id="featured">
         </div>
         <h2 class="title">Latest Products</h2>
-        <div class="row">
-            <div class="col-3">
-                <img src="Images/exclusive.png" alt="">
-                <h4>Product Name</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>product price</p>
-            </div>
-            <div class="col-3">
-                <img src="Images/exclusive.png" alt="">
-                <h4>Product Name</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>product price</p>
-            </div>
-            <div class="col-3">
-                <img src="Images/exclusive.png" alt="">
-                <h4>Product Name</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>product price</p>
-            </div>
-            <div class="col-3">
-                <img src="Images/exclusive.png" alt="">
-                <h4>Product Name</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>product price</p>
-            </div>
+        <div class="row" id="latest-tv">
         </div>
-        <div class="row">
-            <div class="col-3">
-                <img src="Images/exclusive.png" alt="">
-                <h4>Product Name</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>product price</p>
-            </div>
-            <div class="col-3">
-                <img src="Images/exclusive.png" alt="">
-                <h4>Product Name</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>product price</p>
-            </div>
-            <div class="col-4">
-                <img src="Images/exclusive.png" alt="">
-                <h4>Product Name</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>product price</p>
-            </div>
-            <div class="col-4">
-                <img src="Images/exclusive.png" alt="">
-                <h4>Product Name</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>product price</p>
-            </div>
+        <div class="row" id="latest-phone">
+        </div>
+        <div class="row" id="latest-fridge">
         </div>
     </div>
     <!-- offer -->
-    <div class="offer">
-        <div class="small-container">
-            <div class="row">
-                <div class="col-2">
-                    <img src="Images/exclusive.png" alt="" class="offer-img">
-                </div>
-                <div class="col-2">
-                    <p>Exclusively available at En-Garde Appliances</p>
-                    <h1>LG 33 inch wide French Door</h1>
-                    <small>Complete with premium and innovative features such as InstaView™ Door-in-Door, a mirrored
-                        glass panel that illuminates with two knocks and the Auto Open Door™ smart sensor that opens
-                        the
-                        appliance hands-free.</small><br>
-                    <a href="" class="btn">Buy Now &#8594;</a>
-                </div>
-            </div>
-        </div>
+    <div class="offer" id="offer">
+
+
+
     </div>
     <!-- brands -->
     <div class="brands">
@@ -427,10 +200,25 @@
                     <img src="Images/von.png" alt="">
                 </div>
                 <div class="col-5">
+                    <img src="Images/beko.jpg" alt="">
+                </div>
+                <div class="col-5">
                     <img src="Images/Lenovo-Logo-1.png" alt="">
                 </div>
                 <div class="col-5">
+                    <img src="Images/dell.jpeg" alt="">
+                </div>
+                <div class="col-5">
+                    <img src="Images/hp.jpeg" alt="">
+                </div>
+                <div class="col-5">
+                    <img src="Images/hisense.jpeg" alt="">
+                </div>
+                <div class="col-5">
                     <img src="Images/jbl logo.jpg" alt="">
+                </div>
+                <div class="col-5">
+                    <img src="Images/toshiba.png" alt="">
                 </div>
             </div>
         </div>
@@ -576,7 +364,7 @@
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
 
-        import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+        import { getFirestore, query, limit, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
 
         import {
             createUserWithEmailAndPassword, signInWithEmailAndPassword,
@@ -611,11 +399,16 @@
         const signOutButton = document.getElementById("signOut");
         const message = document.getElementById("message");
         const userName = document.getElementById("userName");
+        const cartAmount = document.getElementById("cartAmount");
+
 
         signOutButton.style.display = "none";
         message.style.display = "none";
 
-        const querySnapshot = await getDocs(collection(db, "TVs"));
+        const querySnapshot = await getDocs(query(
+            collection(db, "TVs"),
+            limit(3) // Adjust the number as needed
+        ));
         const featuredProducts = document.getElementById('featured');
 
         querySnapshot.forEach((doc) => {
@@ -630,9 +423,159 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star-o"></i>
                 </div>
-                <p>${data.Price}</p>
+                <p>KES ${data.Price.toLocaleString()}</p>
             </div>`
         });
+        const querySnapshot1 = await getDocs(query(
+            collection(db, "TVs"),
+            limit(3) // Adjust the number as needed
+        ));
+        const latestTVs = document.getElementById('latest-tv');
+
+        querySnapshot1.forEach((doc) => {
+            const data = doc.data();
+            latestTVs.innerHTML += `<div class="col-3">
+                <img src="${data.image1}" alt="">
+                <h4>${doc.id}</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>KES ${data.Price.toLocaleString()}</p>
+            </div>`
+        });
+        const querySnapshot2 = await getDocs(query(
+            collection(db, "Phones"),
+            limit(3) // Adjust the number as needed
+        ));
+        const latestPhones = document.getElementById('latest-phone');
+
+        querySnapshot2.forEach((doc) => {
+            const data = doc.data();
+            latestPhones.innerHTML += `<div class="col-3">
+                <img src="${data.image1}" alt="">
+                <h4>${doc.id}</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>KES ${data.Price.toLocaleString()}</p>
+            </div>`
+        });
+        const querySnapshot3 = await getDocs(query(
+            collection(db, "Fridges"),
+            limit(3) // Adjust the number as needed
+        ));
+        const latestFridges = document.getElementById('latest-fridge');
+
+        querySnapshot3.forEach((doc) => {
+            const data = doc.data();
+            latestFridges.innerHTML += `<div class="col-3">
+                <img src="${data.image1}" alt="">
+                <h4>${doc.id}</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>KES ${data.Price.toLocaleString()}</p>
+            </div>`
+        });
+        const querySnapshot4 = await getDocs(query(
+            collection(db, "Fridges"),
+            limit(1) // Adjust the number as needed
+        ));
+        const latestOffer = document.getElementById('offer');
+
+        querySnapshot4.forEach((doc) => {
+            const data = doc.data();
+            latestOffer.innerHTML += `<div class="small-container">
+            <div class="row" >
+                <div class="col-2">
+                    <img src="${data.image6}" alt="" class="offer-img">
+                </div>
+                <div class="col-2">
+                    <p style="color: rgb(17, 255, 0)">Exclusively available at En-Garde Appliances</p>
+                    <h1>${doc.id}</h1>
+                    <h3>KES ${data.Price.toLocaleString()}</h3><br>
+                    <small>${data.Details}</small><br>
+                    <a href="product-details.html?id=${doc.id}" class="btn">View Product &#8594;</a>
+                </div>
+                </div>
+        </div>`
+        });
+        const querySnapshot5 = await getDocs(query(
+            collection(db, "TVs"),
+            limit(1) // Adjust the number as needed
+        ));
+        const featuredCategoryTV = document.getElementById('category');
+
+        querySnapshot5.forEach((doc) => {
+            const data = doc.data();
+            featuredCategoryTV.innerHTML = `<div class="small-container-1"><div class="row">
+                <div class="col-3" >
+                    <div style="display: flex">
+                        <img src="${data.image1}" alt="">
+                        <img src="${data.image2}" alt="">
+                        <img src="${data.image3}" alt="">
+                        <img src="${data.image4}" alt="">
+                        <img src="${data.image5}" alt="">
+                        </div>
+                    <a href="products.html?collection=TVs&brand=all"><h3>TVs</h3></a>
+                </div>
+            </div></div>`
+        });
+        const querySnapshot6 = await getDocs(query(
+            collection(db, "Phones"),
+            limit(1) // Adjust the number as needed
+        ));
+        const featuredCategoryPhone = document.getElementById('category');
+
+        querySnapshot6.forEach((doc) => {
+            const data = doc.data();
+            featuredCategoryPhone.innerHTML += `<div class="small-container-1"><div class="row">
+                <div class="col-3" >
+                    <div style="display: flex">
+                        <img src="${data.image1}" alt="">
+                        <img src="${data.image2}" alt="">
+                        <img src="${data.image3}" alt="">
+                        <img src="${data.image4}" alt="">
+                        <img src="${data.image5}" alt="">
+                        </div>
+                    <a href="products.html?collection=Phones"><h3>Phones</h3></a>
+                </div>
+            </div></div>`
+        });
+        const querySnapshot7 = await getDocs(query(
+            collection(db, "Fridges"),
+            limit(1) // Adjust the number as needed
+        ));
+        const featuredCategoryFridge = document.getElementById('category');
+
+        querySnapshot7.forEach((doc) => {
+            const data = doc.data();
+            featuredCategoryFridge.innerHTML += `<div class="small-container-1"><div class="row">
+                <div class="col-3">
+                    <div style="display: flex">
+                        <img src="${data.image1}" alt="">
+                        <img src="${data.image2}" alt="">
+                        <img src="${data.image3}" alt="">
+                        <img src="${data.image4}" alt="">
+                        <img src="${data.image5}" alt="">
+                        </div>
+                    <a href="products.html?collection=Fridges"><h3>Fridges</h3></a>
+                </div>
+            </div></div>`
+        });
+
 
         const signupForm = document.querySelector('.signup')
         signupForm.addEventListener('submit', (e) => {
@@ -746,6 +689,7 @@
                 message.style.display = "block";
                 mButton.style.display = "none";
                 mModal.style.display = "none";
+                cartAmount.style.display = "block";
 
                 const providerLogo = user.providerData[0].providerId.split('.')[0]; // Extract the provider name (google, facebook, twitter)
                 let logoIconClass;
@@ -775,6 +719,7 @@
                 signOutButton.style.display = "none";
                 message.style.display = "none";
                 mButton.style.display = "block";
+                cartAmount.style.display = "none";
             }
         });
 
@@ -784,6 +729,9 @@
         signOutButton.addEventListener('click', userSignOut);
 
     </script>
+    <!-- <script>
+        
+    </script> -->
     <script src="bundle.js"></script>
 </body>
 

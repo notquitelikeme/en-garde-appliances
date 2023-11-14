@@ -50,7 +50,10 @@
 
                 <!-- Modal content -->
                 <div class="modal-content">
-                    <span class="close">&times;</span>
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2>Account</h2>
+                    </div>
                     <div class="form-container">
                         <div class="form-btn">
                             <span onclick="login()">Login</span>
@@ -162,24 +165,31 @@
     <div class="small-container">
         <div class="row row-2">
             <h2>All Products</h2>
-            <select name="" id="">
-                <option value="">Default Sorting</option>
-                <option value="">Sort by Price</option>
-                <option value="">Sort by Popularity</option>
-                <option value="">Sort by Rating</option>
-                <option value="">Sort by Sales</option>
-            </select>
+            <div>
+                <h5>Sort by Item</h5>
+                <select name="Sort by Item" id="collectionFilter">
+                    <option value="all">All Items</option>
+                    <option value="TVs">TVs</option>
+                    <option value="Phones">Phones</option>
+                    <option value="Fridges">Fridges</option>
+                </select>
+            </div>
+            <div>
+                <h5>Sort by Brand</h5>
+                <select id="brandFilter">
+                    <option value="all">All Brands</option>
+                    <option value="Samsung">Samsung</option>
+                    <option value="LG">LG</option>
+                    <option value="Von">Von</option>
+                    <option value="Hisense">Hisense</option>
+                    <option value="Beko">Beko</option>
+                </select>
+            </div>
         </div>
         <div class="row" id="all-products">
         </div>
-        <div class="page-btn">
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>&#8594;</span>
-        </div>
     </div>
+    <br><br><br>
     <!-- footer -->
     <div class="footer">
         <div class="container">
@@ -353,25 +363,85 @@
         const message = document.getElementById("message");
         const userName = document.getElementById("userName");
 
-        const querySnapshot = await getDocs(collection(db, "TVs"));
-        const allProducts = document.getElementById('all-products');
+        const querySnapshots = {
+            "TVs": await getDocs(collection(db, "TVs")),
+            "Phones": await getDocs(collection(db, "Phones")),
+            "Fridges": await getDocs(collection(db, "Fridges"))
+        };
 
-        querySnapshot.forEach((doc) => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const allProducts = document.getElementById('all-products');
+        const collectionFilterSelect = document.getElementById('collectionFilter');
+        const brandFilterSelect = document.getElementById('brandFilter'); // Add this line
+
+        async function fetchAndDisplayProducts(collectionName, brandName) {
+            // Clear previous content
+            allProducts.innerHTML = '';
+
+            if (collectionName === 'all') {
+                for (const querySnapshot of Object.values(querySnapshots)) {
+                    querySnapshot.forEach((doc) => {
+                        // Check both collection and brand filters
+                        if (brandName === 'all' || (doc.data().Brand === brandName)) {
+                            displayProduct(doc);
+                        }
+                    });
+                }
+            } else {
+                const querySnapshot = querySnapshots[collectionName];
+                querySnapshot.forEach((doc) => {
+                    // Check brand filter
+                    if (brandName === 'all' || (doc.data().Brand === brandName)) {
+                        displayProduct(doc);
+                    }
+                });
+            }
+        }
+
+        function displayProduct(doc) {
             const data = doc.data();
+            const sanitizedProductId = encodeURIComponent(doc.id);
             allProducts.innerHTML += `<div class="col-3">
-                <img src="${data.image1}" width="120%" height="120%" >
-                <h4><a href="product-details.html?id=${doc.id}">${doc.id}</a></h4>
-                <h5>${data.Brand}</h5>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>Price: ${data.Price}</p>
-            </div>`
-        });
+    <img src="${data.image1}" width="120%" height="120%">
+    <h4><a href="product-details.html?id=${sanitizedProductId}">${doc.id}</a></h4>
+    <h5>${data.Brand}</h5>
+    <div class="rating">
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star-o"></i>
+    </div>
+    <div style="display: flex;">
+      <p style="font-size: 20px;">Price: KES ${data.Price.toLocaleString()}</p>
+      <a href="" class="btn-c">Add to cart</a>
+    </div>
+  </div>`;
+        }
+
+        // Event listener for changes in the select tags
+        collectionFilterSelect.addEventListener('change', updateProducts);
+        brandFilterSelect.addEventListener('change', updateProducts); // Add this line
+
+        // Initial fetch and display with default values
+        updateProducts();
+
+        // Function to update products based on user selections
+        function updateProducts() {
+            const selectedCollection = collectionFilterSelect.value || urlParams.get('collection') || 'all';
+            const selectedBrand = brandFilterSelect.value || urlParams.get('brand') || 'all';
+
+            const url = new URL(window.location.href);
+            url.searchParams.set('collection', selectedCollection);
+            url.searchParams.set('brand', selectedBrand);
+
+            // Replace the current URL without reloading the page
+            window.history.replaceState({}, '', url);
+
+            // Fetch and display products based on the updated parameters
+            fetchAndDisplayProducts(selectedCollection, selectedBrand);
+        }
+
 
         signOutButton.style.display = "none";
         message.style.display = "none";
