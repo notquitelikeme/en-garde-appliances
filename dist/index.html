@@ -13,28 +13,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;400;700&family=Titillium+Web:wght@200;300;400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Outfit:wght@100;400;700&family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Titillium+Web:wght@200;300;400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
 <body>
-    <div class="header">
+    <div class="header" id="myHeader">
         <div class="container">
             <div class="navbar">
                 <div class="logo">
-                    <a href="#" onclick="showPage('home')"><img src="Images/trans3.png" width="125px" alt></a>
+                    <a href="#"><img src="Images/trans3.png" width="125px" alt></a>
                 </div>
                 <div>
-                    <div class="use" style="display: flex; @media only screen and (max-width: 800px){ display: block;}">
-                        <div style="border-bottom-right-radius: 0; border-top-right-radius: 0;" class="username"
-                            id="message">
-                            <p><span id="userName"></span></p>
-                        </div>
-                        <button class="btn" id="signOut"
-                            style="border-bottom-left-radius: 0; border-top-left-radius: 0;">Log out <i
-                                class="fa fa-sign-out"></i></button>
+                    <div class="username" id="message">
+                        <p><span id="userName"></span></p>
                     </div>
                     <div>
                         <nav>
@@ -44,6 +38,8 @@
                                 <li><a href="">Contacts</a></li>
                                 <li><a href="account.html">Account</a></li>
                                 <li><button class="btn" id="myBtn"><i class="fa fa-user"></i></button></li>
+                                <li><button class="btn" id="signOut">Log out <i class="fa fa-sign-out"></i></button>
+                                </li>
                             </ul>
                             <a id="myBtn2">
                                 <div id="cartAmount" class="cartAmount">0</div><img src="Images/cart1.png" alt
@@ -85,11 +81,17 @@
 
                         <div class="socials" id="socials">
                             <button class="btn" id="signInGoogle"> <i class="fa fa-google"
-                                    style="font-size: 30px; text-align: left;"></i> Sign in with Google </button>
+                                    style="font-size: 30px; text-align: left;"></i>
+                                <div>Sign in with Google </div>
+                            </button>
                             <button class="btn" id="signInFacebook"><i class="fa fa-facebook"
-                                    style="font-size: 30px;"></i> Sign in with Facebook </button>
+                                    style="font-size: 30px;"></i>
+                                <div>Sign in with Facebook </div>
+                            </button>
                             <button class="btn" id="signInTwitter"><i class="fa-brands fa-x-twitter"
-                                    style="font-size: 30px;"></i> Sign in with X</button>
+                                    style="font-size: 30px;"></i>
+                                <div>Sign in with X </div>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -113,8 +115,92 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <div id="cart-info">
-                                    </div>
+                                    <td>
+                                        <div class="cart-info">
+                                            <img src="Images/exclusive.png" alt="">
+                                            <div>
+                                                <p>Fridge</p>
+                                                <small>Price: price </small><br>
+                                                <a href="">Remove</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="display: flex;">
+                                        <a class="inc" onclick="increment()">+</a>
+                                        <h4 id="counter">0</h4>
+                                        <a class="inc" onclick="decrement()">-</a>
+                                    </td>
+                                    <td>price</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="cart-info">
+                                            <img src="Images/exclusive.png" alt="">
+                                            <div>
+                                                <p>Fridge</p>
+                                                <small>Price: price </small><br>
+                                                <a href="">Remove</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><input type="number" value="1"></td>
+                                    <td>price</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="cart-info">
+                                            <img src="Images/exclusive.png" alt="">
+                                            <div>
+                                                <p>Fridge</p>
+                                                <small>Price: price </small><br>
+                                                <a href="">Remove</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><input type="number" value="1"></td>
+                                    <td>price</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="cart-info">
+                                            <img src="Images/exclusive.png" alt="">
+                                            <div>
+                                                <p>Fridge</p>
+                                                <small>Price: price </small><br>
+                                                <a href="">Remove</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><input type="number" value="1"></td>
+                                    <td>price</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="cart-info">
+                                            <img src="Images/exclusive.png" alt="">
+                                            <div>
+                                                <p>Fridge</p>
+                                                <small>Price: price </small><br>
+                                                <a href="">Remove</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><input type="number" value="1"></td>
+                                    <td>price</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="cart-info">
+                                            <img src="Images/exclusive.png" alt="">
+                                            <div>
+                                                <p>Fridge</p>
+                                                <small>Price: price </small><br>
+                                                <a href="">Remove</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><input type="number" value="1"></td>
+                                    <td>price</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -145,7 +231,7 @@
             <div class="col-2">
                 <h1>Find What Feels Right For You!</h1>
                 <p>Your One-Stop Shop For Everything Home and Kitchen Appliances.</p>
-                <a href="" class="btn">Explore Now &#8594;</a>
+                <a href="" class="btn" style="box-shadow: 0 4px 8px rgba(255, 204, 0, 0.7);">Explore Now &#8594;</a>
             </div>
             <div class="col-2">
                 <img src="Images/Home-Appliance-Background-PNG.png" alt>
@@ -156,14 +242,6 @@
     <div class="categories">
         <h2 class="title">Featured Categories</h2>
         <div id="category">
-            <div class="small-container">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="Images/exclusive.png" alt="">
-                        <h3>TVs</h3>
-                    </div>
-                </div>
-            </div>
         </div>
 
     </div>
@@ -300,7 +378,6 @@
         }
         btn2.onclick = function () {
             modal2.style.display = "block";
-            document.body.style.overflow = "hidden";
         }
 
         // When the user clicks on <span> (x), close the modal
@@ -413,17 +490,31 @@
 
         querySnapshot.forEach((doc) => {
             const data = doc.data();
-            featuredProducts.innerHTML += `<div class="col-3">
-                <img src="${data.image1}" alt="">
-                <h4>${doc.id}</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
+            const sanitizedProductId = encodeURIComponent(doc.id);
+            featuredProducts.innerHTML += `<div class="col-3" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);">
+                    <div>
+                        <div style="padding: 10px 10px 10px 10px;">
+                        <img src="${data.image1}" alt=""><br>
+                        <a href="product-details.html?id=${sanitizedProductId}"><h3>${doc.id}</h3></a><br>
+                    </div>
+                    </div>
+               <br>
+               <div class="card">
+                <div style="padding: 10px 10px 10px 10px;">
+                    <div>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div><br>
+                <h5>KES ${data.Price.toLocaleString()}</h5></div>
                 </div>
-                <p>KES ${data.Price.toLocaleString()}</p>
+                <a href="" class="btn-c"><img src="Images/cart3.png" alt
+                 width="10px" height="30px"><br>Add to cart</a>
+                </div>
+                </div>
             </div>`
         });
         const querySnapshot1 = await getDocs(query(
@@ -433,18 +524,32 @@
         const latestTVs = document.getElementById('latest-tv');
 
         querySnapshot1.forEach((doc) => {
+            const sanitizedProductId = encodeURIComponent(doc.id);
             const data = doc.data();
-            latestTVs.innerHTML += `<div class="col-3">
-                <img src="${data.image1}" alt="">
-                <h4>${doc.id}</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
+            latestTVs.innerHTML += `<div class="col-3" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);">
+                    <div>
+                        <div style="padding: 10px 10px 10px 10px;">
+                        <img src="${data.image1}" alt=""><br>
+                        <a href="product-details.html?id=${sanitizedProductId}"><h3>${doc.id}</h3></a><br>
+                    </div>
+                    </div>
+               <br>
+               <div class="card">
+                <div style="padding: 10px 10px 10px 10px;">
+                    <div>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div><br>
+                <h5>KES ${data.Price.toLocaleString()}</h5></div>
                 </div>
-                <p>KES ${data.Price.toLocaleString()}</p>
+                <a href="" class="btn-c"><img src="Images/cart3.png" alt
+                 width="10px" height="30px"><br>Add to cart</a>
+                </div>
+                </div>
             </div>`
         });
         const querySnapshot2 = await getDocs(query(
@@ -454,18 +559,32 @@
         const latestPhones = document.getElementById('latest-phone');
 
         querySnapshot2.forEach((doc) => {
+            const sanitizedProductId = encodeURIComponent(doc.id);
             const data = doc.data();
-            latestPhones.innerHTML += `<div class="col-3">
-                <img src="${data.image1}" alt="">
-                <h4>${doc.id}</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
+            latestPhones.innerHTML += `<div class="col-3" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);">
+                    <div>
+                        <div style="padding: 10px 10px 10px 10px;">
+                        <img src="${data.image1}" alt=""><br>
+                        <a href="product-details.html?id=${sanitizedProductId}"><h3>${doc.id}</h3></a><br>
+                    </div>
+                    </div>
+               <br>
+               <div class="card">
+                <div style="padding: 10px 10px 10px 10px;">
+                    <div>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div><br>
+                <h5>KES ${data.Price.toLocaleString()}</h5></div>
                 </div>
-                <p>KES ${data.Price.toLocaleString()}</p>
+                <a href="" class="btn-c"><img src="Images/cart3.png" alt
+                 width="10px" height="30px"><br>Add to cart</a>
+                </div>
+                </div>
             </div>`
         });
         const querySnapshot3 = await getDocs(query(
@@ -475,18 +594,32 @@
         const latestFridges = document.getElementById('latest-fridge');
 
         querySnapshot3.forEach((doc) => {
+            const sanitizedProductId = encodeURIComponent(doc.id);
             const data = doc.data();
-            latestFridges.innerHTML += `<div class="col-3">
-                <img src="${data.image1}" alt="">
-                <h4>${doc.id}</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
+            latestFridges.innerHTML += `<div class="col-3" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);">
+                    <div>
+                        <div style="padding: 10px 10px 10px 10px;">
+                        <img src="${data.image1}" alt=""><br>
+                        <a href="product-details.html?id=${sanitizedProductId}"><h3>${doc.id}</h3></a><br>
+                    </div>
+                    </div>
+               <br>
+               <div class="card">
+                <div style="padding: 10px 10px 10px 10px;">
+                    <div>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div><br>
+                <h5>KES ${data.Price.toLocaleString()}</h5></div>
                 </div>
-                <p>KES ${data.Price.toLocaleString()}</p>
+                <a href="" class="btn-c"><img src="Images/cart3.png" alt
+                 width="10px" height="30px"><br>Add to cart</a>
+                </div>
+                </div>
             </div>`
         });
         const querySnapshot4 = await getDocs(query(
@@ -503,11 +636,11 @@
                     <img src="${data.image6}" alt="" class="offer-img">
                 </div>
                 <div class="col-2">
-                    <p style="color: rgb(17, 255, 0)">Exclusively available at En-Garde Appliances</p>
+                    <p style="color: rgb(255, 204, 0)">Exclusively available at En-Garde Appliances</p>
                     <h1>${doc.id}</h1>
                     <h3>KES ${data.Price.toLocaleString()}</h3><br>
                     <small>${data.Details}</small><br>
-                    <a href="product-details.html?id=${doc.id}" class="btn">View Product &#8594;</a>
+                    <a href="product-details.html?id=${doc.id}" class="btn" style="box-shadow: 0 4px 8px rgba(255, 204, 0, 0.7);">View Product &#8594;</a>
                 </div>
                 </div>
         </div>`
@@ -521,7 +654,7 @@
         querySnapshot5.forEach((doc) => {
             const data = doc.data();
             featuredCategoryTV.innerHTML = `<div class="small-container-1"><div class="row">
-                <div class="col-3" >
+                <div class="col-3-cat" >
                     <div style="display: flex">
                         <img src="${data.image1}" alt="">
                         <img src="${data.image2}" alt="">
@@ -542,7 +675,7 @@
         querySnapshot6.forEach((doc) => {
             const data = doc.data();
             featuredCategoryPhone.innerHTML += `<div class="small-container-1"><div class="row">
-                <div class="col-3" >
+                <div class="col-3-cat" >
                     <div style="display: flex">
                         <img src="${data.image1}" alt="">
                         <img src="${data.image2}" alt="">
@@ -563,7 +696,7 @@
         querySnapshot7.forEach((doc) => {
             const data = doc.data();
             featuredCategoryFridge.innerHTML += `<div class="small-container-1"><div class="row">
-                <div class="col-3">
+                <div class="col-3-cat">
                     <div style="display: flex">
                         <img src="${data.image1}" alt="">
                         <img src="${data.image2}" alt="">
@@ -729,9 +862,26 @@
         signOutButton.addEventListener('click', userSignOut);
 
     </script>
-    <!-- <script>
-        
-    </script> -->
+    <script>
+        // JavaScript functions to handle increment and decrement
+        let counter = 0;
+
+        function increment() {
+            counter++;
+            updateCounter();
+        }
+
+        function decrement() {
+            if (counter > 0) {
+                counter--;
+                updateCounter();
+            }
+        }
+
+        function updateCounter() {
+            document.getElementById('counter').innerText = counter;
+        }
+    </script>
     <script src="bundle.js"></script>
 </body>
 

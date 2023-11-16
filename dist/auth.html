@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,8 @@
             margin-top: 20px;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
@@ -24,16 +26,19 @@
 
         /* Add additional styles for specific th elements */
         th.first-column {
-            background-color: #4CAF50; /* Green background */
+            background-color: #4CAF50;
+            /* Green background */
             color: white;
         }
 
         th.highlight {
-            background-color: #FFD700; /* Yellow background */
+            background-color: #FFD700;
+            /* Yellow background */
             color: #333;
         }
     </style>
 </head>
+
 <body>
     <a></a>
 
@@ -58,6 +63,34 @@
             </tr>
         </tbody>
     </table>
+    <div class="col-3" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);">
+        <div>
+            <div style="padding: 10px 10px 10px 10px;">
+                <img src="${data.image1}" alt=""><br>
+                <a href="product-details.html?id=${sanitizedProductId}">
+                    <h3>${doc.id}</h3>
+                </a><br>
+            </div>
+        </div>
+        <br>
+        <div class="card">
+            <div style="padding: 10px 10px 10px 10px;">
+                <div>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div><br>
+                    <p>KES ${data.Price.toLocaleString()}</p>
+                </div>
+            </div>
+            <a href="" class="btn-c"><img src="Images/cart3.png" alt width="10px" height="30px"><br>Add to cart</a>
+        </div>
+    </div>
+    </div>
 
 </body>
+
 </html>
