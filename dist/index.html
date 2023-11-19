@@ -20,13 +20,13 @@
 </head>
 
 <body>
-    <div class="header" id="myHeader">
+    <div class="header" id="main-header">
         <div class="container">
             <div class="navbar">
                 <div class="logo">
                     <a href="#"><img src="Images/trans3.png" width="125px" alt></a>
                 </div>
-                <div>
+                <div class="cont">
                     <div class="username" id="message">
                         <p><span id="userName"></span></p>
                     </div>
@@ -38,7 +38,7 @@
                                 <li><a href="">Contacts</a></li>
                                 <li><a href="account.html">Account</a></li>
                                 <li><button class="btn" id="myBtn"><i class="fa fa-user"></i></button></li>
-                                <li><button class="btn" id="signOut">Log out <i class="fa fa-sign-out"></i></button>
+                                <li><button class="btn" id="signOut"><i class="fa fa-sign-out"></i></button>
                                 </li>
                             </ul>
                             <a id="myBtn2">
@@ -51,175 +51,106 @@
 
                 </div>
             </div>
-            <div id="myModal" class="modal">
+        </div>
+    </div>
+    <div id="myModal" class="modal">
 
-                <!-- Modal content -->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <span class="close">&times;</span>
-                        <h2>Account</h2>
-                    </div>
-                    <div class="form-container">
-                        <div class="form-btn">
-                            <span onclick="login()">Login</span>
-                            <span onclick="register()">Register</span>
-                            <span onclick="signin()">Social</span>
-                            <hr id="Indicator">
-                        </div>
-                        <form action="" id="loginform" class="signin">
-                            <input type="email" placeholder="Enter Email">
-                            <input type="password" placeholder="Enter Password">
-                            <button type="submit" class="btn">Login</button>
-                            <a href="">Forgot Password</a>
-                        </form>
-                        <form action="" id="registrationform" class="signup">
-                            <input id="name" type="text" placeholder="Name">
-                            <input id="email" type="email" placeholder="Email">
-                            <input id="password" type="password" placeholder="Password">
-                            <button id="btn" type="submit" class="btn">Register</button>
-                        </form>
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Account</h2>
+            </div>
+            <div class="form-container">
+                <div class="form-btn">
+                    <span onclick="login()">Login</span>
+                    <span onclick="register()">Register</span>
+                    <span onclick="signin()">Social</span>
+                    <hr id="Indicator">
+                </div>
+                <form action="" id="loginform" class="signin">
+                    <input type="email" placeholder="Enter Email">
+                    <input type="password" placeholder="Enter Password">
+                    <button type="submit" class="btn">Login</button>
+                    <a href="">Forgot Password</a>
+                </form>
+                <form action="" id="registrationform" class="signup">
+                    <input id="name" type="text" placeholder="Name">
+                    <input id="email" type="email" placeholder="Email">
+                    <input id="password" type="password" placeholder="Password">
+                    <button id="btn" type="submit" class="btn">Register</button>
+                </form>
 
-                        <div class="socials" id="socials">
-                            <button class="btn" id="signInGoogle"> <i class="fa fa-google"
-                                    style="font-size: 30px; text-align: left;"></i>
-                                <div>Sign in with Google </div>
-                            </button>
-                            <button class="btn" id="signInFacebook"><i class="fa fa-facebook"
-                                    style="font-size: 30px;"></i>
-                                <div>Sign in with Facebook </div>
-                            </button>
-                            <button class="btn" id="signInTwitter"><i class="fa-brands fa-x-twitter"
-                                    style="font-size: 30px;"></i>
-                                <div>Sign in with X </div>
-                            </button>
-                        </div>
-                    </div>
+                <div class="socials" id="socials">
+                    <button class="btn" id="signInGoogle"> <i class="fa fa-google"
+                            style="font-size: 30px; text-align: left;"></i>
+                        <div>Sign in with Google </div>
+                    </button>
+                    <button class="btn" id="signInFacebook"><i class="fa fa-facebook" style="font-size: 30px;"></i>
+                        <div>Sign in with Facebook </div>
+                    </button>
+                    <button class="btn" id="signInTwitter"><i class="fa-brands fa-x-twitter"
+                            style="font-size: 30px;"></i>
+                        <div>Sign in with X </div>
+                    </button>
                 </div>
             </div>
-            <div id="myModal2" class="modal2">
+        </div>
+    </div>
+    <div id="myModal2" class="modal2">
 
-                <!-- Modal content -->
-                <div class="modal-content2" id="modal-content2">
-                    <div class="modal2-header">
-                        <span class="close2">&times;</span>
-                        <h2>Cart</h2>
-                    </div>
-                    <div class="small-container cart-page">
+        <!-- Modal content -->
+        <div class="modal-content2" id="modal-content2">
+            <div class="modal2-header">
+                <span class="close2">&times;</span>
+                <h2>Cart</h2>
+            </div>
+            <div class="small-container cart-page">
+                <div class="cart-list" id="cart-list">
+                    <table>
+                        <thead class="header-container">
+                            <tr>
+                                <th class="first-column">Product</th>
+                                <th>Quantity</th>
+                                <th class="highlight">Sub-total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="cart-info">
+                                        <img src="Images/exclusive.png" alt="">
+                                        <div>
+                                            <p>Fridge</p>
+                                            <small>Price: price </small><br>
+                                            <a href="">Remove</a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="display: flex;">
+                                    <a class="inc" onclick="increment()">+</a>
+                                    <h4 id="counter">0</h4>
+                                    <a class="dec" onclick="decrement()">-</a>
+                                </td>
+                                <td>price</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="total-price" id="total-price">
                         <table>
-                            <thead class="header-container">
-                                <tr>
-                                    <th class="first-column">Product</th>
-                                    <th>Quantity</th>
-                                    <th class="highlight">Sub-total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="Images/exclusive.png" alt="">
-                                            <div>
-                                                <p>Fridge</p>
-                                                <small>Price: price </small><br>
-                                                <a href="">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td style="display: flex;">
-                                        <a class="inc" onclick="increment()">+</a>
-                                        <h4 id="counter">0</h4>
-                                        <a class="inc" onclick="decrement()">-</a>
-                                    </td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="Images/exclusive.png" alt="">
-                                            <div>
-                                                <p>Fridge</p>
-                                                <small>Price: price </small><br>
-                                                <a href="">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><input type="number" value="1"></td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="Images/exclusive.png" alt="">
-                                            <div>
-                                                <p>Fridge</p>
-                                                <small>Price: price </small><br>
-                                                <a href="">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><input type="number" value="1"></td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="Images/exclusive.png" alt="">
-                                            <div>
-                                                <p>Fridge</p>
-                                                <small>Price: price </small><br>
-                                                <a href="">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><input type="number" value="1"></td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="Images/exclusive.png" alt="">
-                                            <div>
-                                                <p>Fridge</p>
-                                                <small>Price: price </small><br>
-                                                <a href="">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><input type="number" value="1"></td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="Images/exclusive.png" alt="">
-                                            <div>
-                                                <p>Fridge</p>
-                                                <small>Price: price </small><br>
-                                                <a href="">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><input type="number" value="1"></td>
-                                    <td>price</td>
-                                </tr>
-                            </tbody>
+                            <tr>
+                                <td>Subtotal</td>
+                                <td>price</td>
+                            </tr>
+                            <tr>
+                                <td>Tax</td>
+                                <td>price</td>
+                            </tr>
+                            <tr>
+                                <td>Total</td>
+                                <td>price</td>
+                            </tr>
                         </table>
-                        <div class="total-price" id="total-price">
-                            <table>
-                                <tr>
-                                    <td>Subtotal</td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>Tax</td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>Total</td>
-                                    <td>price</td>
-                                </tr>
-                            </table>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -260,9 +191,7 @@
     </div>
     <!-- offer -->
     <div class="offer" id="offer">
-
-
-
+        <h2 class="title">Latest Offer</h2>
     </div>
     <!-- brands -->
     <div class="brands">
@@ -333,10 +262,10 @@
                 <div class="footer-col-3">
                     <h3>Follow Us</h3>
                     <ul>
-                        <li>Facebok</li>
+                        <li>Facebook</li>
                         <li>Twitter</li>
                         <li>Instagram</li>
-                        <li>Youtube</li>
+                        <li>YouTube</li>
                     </ul>
                 </div>
             </div>
@@ -638,6 +567,9 @@
                 <div class="col-2">
                     <p style="color: rgb(255, 204, 0)">Exclusively available at En-Garde Appliances</p>
                     <h1>${doc.id}</h1>
+                    <h4>WAS<h4/>
+                    <h4><strike>KES 60,995</strike></h4>
+                    <h3>NOW</h3>
                     <h3>KES ${data.Price.toLocaleString()}</h3><br>
                     <small>${data.Details}</small><br>
                     <a href="product-details.html?id=${doc.id}" class="btn" style="box-shadow: 0 4px 8px rgba(255, 204, 0, 0.7);">View Product &#8594;</a>
@@ -822,7 +754,7 @@
                 message.style.display = "block";
                 mButton.style.display = "none";
                 mModal.style.display = "none";
-                cartAmount.style.display = "block";
+                cartAmount.style.display = "none";
 
                 const providerLogo = user.providerData[0].providerId.split('.')[0]; // Extract the provider name (google, facebook, twitter)
                 let logoIconClass;
@@ -841,12 +773,15 @@
                         logoIconClass = "fa fa-envelope rotating-icon"; // Default user icon (You can change this to any other default icon)
                         break;
                 }
-
-                userName.innerHTML = `<div class="user-info" style="display: flex; align-items: center; justify-content: space-between">
-                <div class="user1-icon" style="margin-right: 10px; font-size: 30px;"><i class="fa fa-user"></i></div>
-                <div class="user-icon" style="margin-right: 10px; font-size: 30px;"><i class="${logoIconClass}"></i></div>
-                <div class="username" style="margin-left: auto;">${user.displayName}</div>
-            </div>`;
+                userName.innerHTML = `
+  <div class="user-info" style="display: flex; align-items: center; justify-content: space-between">
+    <div class="user1-icon" style="margin-right: 10px; font-size: 30px;"><i class="fa fa-user"></i></div>
+    <div class="profile-picture-container" style="display: flex; align-items: center;">
+      <img src="${user.photoURL}" alt="Profile Picture" style="width: 40px; height: 40px; border-radius: 10px; margin-right: 0px;">
+    </div>
+    <div class="user-icon" style="margin-right: 10px; margin-left: 5px; font-size: 30px;"><i class="${logoIconClass}"></i></div>
+    <div class="username" style="margin-left: auto;">${user.displayName}</div>
+  </div>`;
 
             } else {
                 signOutButton.style.display = "none";
@@ -881,6 +816,19 @@
         function updateCounter() {
             document.getElementById('counter').innerText = counter;
         }
+    </script>
+    <script>
+        window.addEventListener('scroll', function () {
+            const header = document.getElementById('main-header');
+            const scrollPosition = window.scrollY;
+
+            if (scrollPosition > 50) {
+                header.classList.add('shrink');
+            } else {
+                header.classList.remove('shrink');
+            }
+        });
+
     </script>
     <script src="bundle.js"></script>
 </body>

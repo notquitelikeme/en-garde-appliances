@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>En-Garde Appliances | Products</title>
     <link rel="icon" type="image/x-icon" href="Images/trans3.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,13 +19,13 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="header">
+    <div class="header" id="main-header">
+        <div class="container">
             <div class="navbar">
                 <div class="logo">
-                    <a href="index.html"><img src="Images/trans3.png" width="125px" alt></a>
+                    <a href="#"><img src="Images/trans3.png" width="125px" alt></a>
                 </div>
-                <div>
+                <div class="cont">
                     <div class="username" id="message">
                         <p><span id="userName"></span></p>
                     </div>
@@ -34,177 +37,119 @@
                                 <li><a href="">Contacts</a></li>
                                 <li><a href="account.html">Account</a></li>
                                 <li><button class="btn" id="myBtn"><i class="fa fa-user"></i></button></li>
-                                <li><a id="myBtn2"><img src="Images/cart1.png" alt width="30px" height="30px"></a></li>
-                                <li><button class="btn" id="signOut">Log out <i class="fa fa-sign-out"></i></button>
+                                <li><button class="btn" id="signOut"><i class="fa fa-sign-out"></i></button>
                                 </li>
                             </ul>
-
+                            <a id="myBtn2">
+                                <div id="cartAmount" class="cartAmount">0</div><img src="Images/cart1.png" alt
+                                    width="30px" height="30px">
+                            </a>
                             <img src="Images/menu.png" alt="" class="menu-icon" onclick="menutoggle()">
                         </nav>
                     </div>
 
                 </div>
             </div>
-            <div id="myModal" class="modal">
+        </div>
+    </div>
+    <div id="myModal" class="modal">
 
-                <!-- Modal content -->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <span class="close">&times;</span>
-                        <h2>Account</h2>
-                    </div>
-                    <div class="form-container">
-                        <div class="form-btn">
-                            <span onclick="login()">Login</span>
-                            <span onclick="register()">Register</span>
-                            <span onclick="signin()">Social</span>
-                            <hr id="Indicator">
-                        </div>
-                        <form action="" id="loginform" class="signin">
-                            <input type="email" placeholder="Enter Email">
-                            <input type="password" placeholder="Enter Password">
-                            <button type="submit" class="btn">Login</button>
-                            <a href="">Forgot Password</a>
-                            <button type="button" class="logout" id="logoutBtn"> Logout </button>
-                        </form>
-                        <form action="" id="registrationform" class="signup">
-                            <input id="name" type="text" placeholder="Name">
-                            <input id="email" type="email" placeholder="Email">
-                            <input id="password" type="password" placeholder="Password">
-                            <button id="btn" type="submit" class="btn">Register</button>
-                        </form>
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Account</h2>
+            </div>
+            <div class="form-container">
+                <div class="form-btn">
+                    <span onclick="login()">Login</span>
+                    <span onclick="register()">Register</span>
+                    <span onclick="signin()">Social</span>
+                    <hr id="Indicator">
+                </div>
+                <form action="" id="loginform" class="signin">
+                    <input type="email" placeholder="Enter Email">
+                    <input type="password" placeholder="Enter Password">
+                    <button type="submit" class="btn">Login</button>
+                    <a href="">Forgot Password</a>
+                </form>
+                <form action="" id="registrationform" class="signup">
+                    <input id="name" type="text" placeholder="Name">
+                    <input id="email" type="email" placeholder="Email">
+                    <input id="password" type="password" placeholder="Password">
+                    <button id="btn" type="submit" class="btn">Register</button>
+                </form>
 
-                        <div class="socials" id="socials">
-                            <button class="btn" id="signInGoogle">Sign in with Google <i
-                                    class="fa fa-google"></i></button>
-                            <button class="btn" id="signInFacebook">Sign in with Facebook <i
-                                    class="fa fa-facebook"></i></button>
-                            <button class="btn" id="signInTwitter">Sign in with Twitter <i
-                                    class="fa fa-twitter"></i></button>
-                        </div>
-                    </div>
+                <div class="socials" id="socials">
+                    <button class="btn" id="signInGoogle"> <i class="fa fa-google"
+                            style="font-size: 30px; text-align: left;"></i>
+                        <div>Sign in with Google </div>
+                    </button>
+                    <button class="btn" id="signInFacebook"><i class="fa fa-facebook" style="font-size: 30px;"></i>
+                        <div>Sign in with Facebook </div>
+                    </button>
+                    <button class="btn" id="signInTwitter"><i class="fa-brands fa-x-twitter"
+                            style="font-size: 30px;"></i>
+                        <div>Sign in with X </div>
+                    </button>
                 </div>
             </div>
-            <div id="myModal2" class="modal2">
+        </div>
+    </div>
+    <div id="myModal2" class="modal2">
 
-                <!-- Modal content -->
-                <div class="modal-content2" id="modal-content2">
-                    <div class="modal2-header">
-                        <span class="close2">&times;</span>
-                        <h2>Cart</h2>
-                    </div>
-                    <div class="small-container cart-page">
+        <!-- Modal content -->
+        <div class="modal-content2" id="modal-content2">
+            <div class="modal2-header">
+                <span class="close2">&times;</span>
+                <h2>Cart</h2>
+            </div>
+            <div class="small-container cart-page">
+                <div class="cart-list" id="cart-list">
+                    <table>
+                        <thead class="header-container">
+                            <tr>
+                                <th class="first-column">Product</th>
+                                <th>Quantity</th>
+                                <th class="highlight">Sub-total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="cart-info">
+                                        <img src="Images/exclusive.png" alt="">
+                                        <div>
+                                            <p>Fridge</p>
+                                            <small>Price: price </small><br>
+                                            <a href="">Remove</a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="display: flex;">
+                                    <a class="inc" onclick="increment()">+</a>
+                                    <h4 id="counter">0</h4>
+                                    <a class="dec" onclick="decrement()">-</a>
+                                </td>
+                                <td>price</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="total-price" id="total-price">
                         <table>
-                            <thead class="header-container">
-                                <tr>
-                                    <th class="first-column">Product</th>
-                                    <th>Quantity</th>
-                                    <th class="highlight">Sub-total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="Images/exclusive.png" alt="">
-                                            <div>
-                                                <p>Fridge</p>
-                                                <small>Price: price </small><br>
-                                                <a href="">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><input type="number" value="1"></td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="Images/exclusive.png" alt="">
-                                            <div>
-                                                <p>Fridge</p>
-                                                <small>Price: price </small><br>
-                                                <a href="">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><input type="number" value="1"></td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="Images/exclusive.png" alt="">
-                                            <div>
-                                                <p>Fridge</p>
-                                                <small>Price: price </small><br>
-                                                <a href="">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><input type="number" value="1"></td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="Images/exclusive.png" alt="">
-                                            <div>
-                                                <p>Fridge</p>
-                                                <small>Price: price </small><br>
-                                                <a href="">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><input type="number" value="1"></td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="Images/exclusive.png" alt="">
-                                            <div>
-                                                <p>Fridge</p>
-                                                <small>Price: price </small><br>
-                                                <a href="">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><input type="number" value="1"></td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="Images/exclusive.png" alt="">
-                                            <div>
-                                                <p>Fridge</p>
-                                                <small>Price: price </small><br>
-                                                <a href="">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><input type="number" value="1"></td>
-                                    <td>price</td>
-                                </tr>
-                            </tbody>
+                            <tr>
+                                <td>Subtotal</td>
+                                <td>price</td>
+                            </tr>
+                            <tr>
+                                <td>Tax</td>
+                                <td>price</td>
+                            </tr>
+                            <tr>
+                                <td>Total</td>
+                                <td>price</td>
+                            </tr>
                         </table>
-                        <div class="total-price" id="total-price">
-                            <table>
-                                <tr>
-                                    <td>Subtotal</td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>Tax</td>
-                                    <td>price</td>
-                                </tr>
-                                <tr>
-                                    <td>Total</td>
-                                    <td>price</td>
-                                </tr>
-                            </table>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -624,16 +569,16 @@
 
                 switch (providerLogo) {
                     case "google":
-                        logoIconClass = "fa fa-google"; // Font Awesome class for Google icon
+                        logoIconClass = "fa fa-google rotating-icon"; // Font Awesome class for Google icon
                         break;
                     case "facebook":
-                        logoIconClass = "fa fa-facebook"; // Font Awesome class for Facebook icon
+                        logoIconClass = "fa fa-facebook rotating-icon"; // Font Awesome class for Facebook icon
                         break;
                     case "twitter":
-                        logoIconClass = "fa fa-twitter"; // Font Awesome class for Twitter icon
+                        logoIconClass = "fa-brands fa-x-twitter rotating-icon"; // Font Awesome class for Twitter icon
                         break;
                     default:
-                        logoIconClass = "fa fa-envelope"; // Default user icon (You can change this to any other default icon)
+                        logoIconClass = "fa fa-envelope rotating-icon"; // Default user icon (You can change this to any other default icon)
                         break;
                 }
 
@@ -673,6 +618,19 @@
         SmallImg[3].onclick = function () {
             ProductImg.src = SmallImg[3].src;
         }
+    </script>
+    <script>
+        window.addEventListener('scroll', function () {
+            const header = document.getElementById('main-header');
+            const scrollPosition = window.scrollY;
+
+            if (scrollPosition > 50) {
+                header.classList.add('shrink');
+            } else {
+                header.classList.remove('shrink');
+            }
+        });
+
     </script>
 </body>
 
