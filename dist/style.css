@@ -166,8 +166,8 @@ p {
     padding: 10px;
     margin: 0 5px;
     cursor: pointer;
-    color: green;
-    background: #000000;
+    color: white;
+    background: green;
     border-radius: 15px;
 }
 .dec {
@@ -175,8 +175,8 @@ p {
     padding: 10px;
     margin: 0 5px;
     cursor: pointer;
-    color: red;
-    background: #000000;
+    color: white;
+    background: red;
     border-radius: 15px;
 }
 
@@ -838,35 +838,24 @@ form a {
 
 .modal {
     display: none;
-    /* Hidden by default */
     position: fixed;
-    /* Stay in place */
     z-index: 3;
-    /* Sit on top */
     left: 0;
     top: 0;
     width: 100%;
-    /* Full width */
     height: 100%;
-    /* Full height */
     overflow: auto;
-    /* Enable scroll if needed */
     background-color: rgb(255, 255, 255);
-    /* Fallback color */
     background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
     transition: transform 1s;
     border-radius: 5px;
 }
 
-/* Modal Content/Box */
 .modal-content {
     background-color: #ffffff;
     margin: 0 0 0 auto;
-    /* 15% from the top and centered */
     padding: 0px;
     width: 40%;
-    /* Could be more or less, depending on screen size */
     height: 100%;
     border-radius: 20px;
 }
@@ -884,40 +873,28 @@ form a {
 
 .modal2 {
     display: none;
-    /* Hidden by default */
     position: fixed;
-    /* Stay in place */
     z-index: 3;
-    /* Sit on top */
     left: 0;
     top: 0;
     width: 100%;
-    /* Full width */
     height: 100%;
-    /* Full height */
     overflow: auto;
-    /* Enable scroll if needed */
     background-color: rgb(255, 255, 255);
-    /* Fallback color */
     background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
     transition: transform 1s;
     border-radius: 5px;
 }
 
-/* Modal Content/Box */
 .modal-content2 {
     background-color: #ffffff;
     margin: 0 0 0 auto;
-    /* 15% from the top and centered */
     padding: 0px;
     width: 50%;
-    /* Could be more or less, depending on screen size */
     height: auto;
     border-radius: 20px;
 }
 
-/* The Close Button */
 .close,
 .close2 {
     color: rgb(255, 204, 0);
@@ -939,24 +916,20 @@ form a {
     border: none;
 }
 
-/* Apply a default rotation of 0 degrees to the icon */
 .rotating-icon {
     transition: transform 1.0s ease;
-    /* Add a smooth transition effect */
+
 }
 
-/* Rotate the icon by 360 degrees on hover */
+
 .rotating-icon:hover {
     transform: rotate(-390deg);
 }
 
 
-
-/* media query for menu */
 @media only screen and (max-width: 800px) {
 
-    /* header{
-    } */
+    
     nav ul {
         position: absolute;
         top: 230px;

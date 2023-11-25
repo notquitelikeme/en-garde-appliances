@@ -36,7 +36,7 @@
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="products.html">Products</a></li>
                                 <li><a href="">Contacts</a></li>
-                                <li><a href="account.html">Account</a></li>
+                                <li><a href="">Account</a></li>
                                 <li><button class="btn" id="myBtn"><i class="fa fa-user"></i></button></li>
                                 <li><button class="btn" id="signOut"><i class="fa fa-sign-out"></i></button>
                                 </li>
@@ -293,15 +293,12 @@
         var modal = document.getElementById("myModal");
         var modal2 = document.getElementById("myModal2");
 
-        // Get the button that opens the modal
         var btn = document.getElementById("myBtn");
         var btn2 = document.getElementById("myBtn2");
 
-        // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
         var span2 = document.getElementsByClassName("close2")[0];
 
-        // When the user clicks on the button, open the modal
         btn.onclick = function () {
             modal.style.display = "block";
         }
@@ -309,7 +306,6 @@
             modal2.style.display = "block";
         }
 
-        // When the user clicks on <span> (x), close the modal
         span.onclick = function () {
             modal.style.display = "none";
         }
@@ -318,7 +314,6 @@
             document.body.style.overflow = "auto";
         }
 
-        // When the user clicks anywhere outside of the modal, close it
         window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
@@ -413,7 +408,7 @@
 
         const querySnapshot = await getDocs(query(
             collection(db, "TVs"),
-            limit(3) // Adjust the number as needed
+            limit(3)
         ));
         const featuredProducts = document.getElementById('featured');
 
@@ -448,7 +443,7 @@
         });
         const querySnapshot1 = await getDocs(query(
             collection(db, "TVs"),
-            limit(3) // Adjust the number as needed
+            limit(3)
         ));
         const latestTVs = document.getElementById('latest-tv');
 
@@ -483,7 +478,7 @@
         });
         const querySnapshot2 = await getDocs(query(
             collection(db, "Phones"),
-            limit(3) // Adjust the number as needed
+            limit(3)
         ));
         const latestPhones = document.getElementById('latest-phone');
 
@@ -518,7 +513,7 @@
         });
         const querySnapshot3 = await getDocs(query(
             collection(db, "Fridges"),
-            limit(3) // Adjust the number as needed
+            limit(3)
         ));
         const latestFridges = document.getElementById('latest-fridge');
 
@@ -553,7 +548,7 @@
         });
         const querySnapshot4 = await getDocs(query(
             collection(db, "Fridges"),
-            limit(1) // Adjust the number as needed
+            limit(1)
         ));
         const latestOffer = document.getElementById('offer');
 
@@ -579,7 +574,7 @@
         });
         const querySnapshot5 = await getDocs(query(
             collection(db, "TVs"),
-            limit(1) // Adjust the number as needed
+            limit(1)
         ));
         const featuredCategoryTV = document.getElementById('category');
 
@@ -600,7 +595,7 @@
         });
         const querySnapshot6 = await getDocs(query(
             collection(db, "Phones"),
-            limit(1) // Adjust the number as needed
+            limit(1)
         ));
         const featuredCategoryPhone = document.getElementById('category');
 
@@ -621,7 +616,7 @@
         });
         const querySnapshot7 = await getDocs(query(
             collection(db, "Fridges"),
-            limit(1) // Adjust the number as needed
+            limit(1)
         ));
         const featuredCategoryFridge = document.getElementById('category');
 
@@ -683,25 +678,23 @@
         const userSignInTw = async () => {
             signInWithPopup(auth, twitterProvider)
                 .then((result) => {
-                    // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
-                    // You can use these server side with your app's credentials to access the Twitter API.
+
                     const credential = TwitterAuthProvider.credentialFromResult(result);
                     const token = credential.accessToken;
                     const secret = credential.secret;
 
-                    // The signed-in user info.
+
                     const user = result.user;
-                    // IdP data available using getAdditionalUserInfo(result)
-                    // ...
+
                 }).catch((error) => {
-                    // Handle Errors here.
+
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    // The email of the user's account used.
+
                     const email = error.customData.email;
-                    // The AuthCredential type that was used.
+
                     const credential = TwitterAuthProvider.credentialFromError(error);
-                    // ...
+
                 });
         }
         const userSignInFb = async () => {
@@ -712,17 +705,16 @@
                     const token = credential.accessToken;
                     const secret = credential.secret;
 
-                    // The signed-in user info.
+
                     const user = result.user;
-                    // IdP data available using getAdditionalUserInfo(result)
-                    // ...
+
                 }).catch((error) => {
-                    // Handle Errors here.
+
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    // The email of the user's account used.
+
                     const email = error.customData.email;
-                    // The AuthCredential type that was used.
+
                     const credential = TwitterAuthProvider.credentialFromError(error);
                     // ...
                 });
@@ -748,57 +740,176 @@
             }
         });
 
-        onAuthStateChanged(auth, (user) => {
+        const handleUserAuthentication = async (user) => {
             if (user) {
+
                 signOutButton.style.display = "block";
                 message.style.display = "block";
                 mButton.style.display = "none";
                 mModal.style.display = "none";
                 cartAmount.style.display = "none";
 
-                const providerLogo = user.providerData[0].providerId.split('.')[0]; // Extract the provider name (google, facebook, twitter)
+                const providerLogo = user.providerData[0].providerId.split('.')[0];
                 let logoIconClass;
 
                 switch (providerLogo) {
                     case "google":
-                        logoIconClass = "fa fa-google rotating-icon"; // Font Awesome class for Google icon
+                        logoIconClass = "fa fa-google rotating-icon";
                         break;
                     case "facebook":
-                        logoIconClass = "fa fa-facebook rotating-icon"; // Font Awesome class for Facebook icon
+                        logoIconClass = "fa fa-facebook rotating-icon";
                         break;
                     case "twitter":
-                        logoIconClass = "fa-brands fa-x-twitter rotating-icon"; // Font Awesome class for Twitter icon
+                        logoIconClass = "fa-brands fa-x-twitter rotating-icon";
                         break;
                     default:
-                        logoIconClass = "fa fa-envelope rotating-icon"; // Default user icon (You can change this to any other default icon)
+                        logoIconClass = "fa fa-envelope rotating-icon";
                         break;
                 }
-                userName.innerHTML = `
-  <div class="user-info" style="display: flex; align-items: center; justify-content: space-between">
-    <div class="user1-icon" style="margin-right: 10px; font-size: 30px;"><i class="fa fa-user"></i></div>
-    <div class="profile-picture-container" style="display: flex; align-items: center;">
-      <img src="${user.photoURL}" alt="Profile Picture" style="width: 40px; height: 40px; border-radius: 10px; margin-right: 0px;">
-    </div>
-    <div class="user-icon" style="margin-right: 10px; margin-left: 5px; font-size: 30px;"><i class="${logoIconClass}"></i></div>
-    <div class="username" style="margin-left: auto;">${user.displayName}</div>
-  </div>`;
 
+                userName.innerHTML = `<div class="user-info" style="display: flex; align-items: center; justify-content: space-between">
+    <div class="user1-icon" style="margin-right: 10px; font-size: 30px;"><i class="fa fa-user"></i></div>
+    <div class="user-icon" style="margin-right: 10px; font-size: 30px;"><i class="${logoIconClass}"></i></div>
+    <div class="username" style="margin-left: auto;">${user.displayName}</div>
+</div>`;
+
+
+                const userId = user.uid;
+                const cartRef = doc(db, 'Carts', userId);
+
+                try {
+                    const docSnapshot = await getDoc(cartRef);
+
+                    if (!docSnapshot.exists()) {
+                        const defaultCartData = {
+                            items: {},
+                        };
+
+                        await setDoc(cartRef, defaultCartData);
+                        console.log('Cart initialized for the user.');
+                    } else {
+                        console.log('Cart already exists for the user.');
+                    }
+                } catch (error) {
+                    console.error('Error initializing or checking cart: ', error);
+                }
             } else {
+
                 signOutButton.style.display = "none";
                 message.style.display = "none";
                 mButton.style.display = "block";
-                cartAmount.style.display = "none";
+                console.log('User not authenticated.');
             }
-        });
+        };
+
+
+        onAuthStateChanged(auth, handleUserAuthentication);
 
         signInButton.addEventListener('click', userSignIn);
         signInTw.addEventListener('click', userSignInTw);
         signInFb.addEventListener('click', userSignInFb);
         signOutButton.addEventListener('click', userSignOut);
 
+        async function addToCart(productId, collectionName) {
+            try {
+                const userId = firebase.auth().currentUser.uid;
+                const cartRef = firebase.firestore().collection("Carts").doc(userId);
+
+                const currentItemsSnapshot = await cartRef.get();
+                const currentItems = currentItemsSnapshot.exists ? currentItemsSnapshot.data().items || {} : {};
+
+                // Increment the quantity for the given productId or set it to 1 if not present
+                currentItems[productId] = (currentItems[productId] || 0) + 1;
+
+                await cartRef.set({ items: currentItems });
+
+                console.log("Item added to the cart successfully!");
+            } catch (error) {
+                console.error("Error adding item to the cart: ", error);
+            }
+        }
+
+        async function removeFromCart(productId) {
+            try {
+                const userId = firebase.auth().currentUser.uid;
+                const cartRef = firebase.firestore().collection("Carts").doc(userId);
+
+                const currentItemsSnapshot = await cartRef.get();
+                const currentItems = currentItemsSnapshot.exists ? currentItemsSnapshot.data().items || {} : {};
+
+                // Decrement the quantity for the given productId or remove it if the quantity is 1
+                if (currentItems[productId]) {
+                    currentItems[productId] = currentItems[productId] > 1 ? currentItems[productId] - 1 : undefined;
+                }
+
+                await cartRef.set({ items: currentItems });
+
+                console.log("Item removed from the cart successfully!");
+            } catch (error) {
+                console.error("Error removing item from the cart: ", error);
+            }
+        }
+
+        async function displayCartItems() {
+            try {
+                const userId = firebase.auth().currentUser.uid;
+                const cartRef = firebase.firestore().collection("Carts").doc(userId);
+
+                const currentItemsSnapshot = await cartRef.get();
+                const currentItems = currentItemsSnapshot.exists ? currentItemsSnapshot.data().items || {} : {};
+
+                for (const productId in currentItems) {
+                    const productRef = firebase.firestore().collection("TVs").doc(productId);
+
+                    const productSnapshot = await productRef.get();
+
+                    if (productSnapshot.exists) {
+                        const product = productSnapshot.data();
+                        const quantity = currentItems[productId];
+
+                        console.log(`Product: ${productId}, Brand: ${product.Brand}, Quantity: ${quantity}, Price: ${product.Price}`);
+                    }
+                }
+            } catch (error) {
+                console.error("Error displaying cart items: ", error);
+            }
+        }
+
+        async function calculateTotalPrice() {
+            try {
+                const userId = firebase.auth().currentUser.uid;
+                const cartRef = firebase.firestore().collection("Carts").doc(userId);
+
+                const currentItemsSnapshot = await cartRef.get();
+                const currentItems = currentItemsSnapshot.exists ? currentItemsSnapshot.data().items || {} : {};
+
+                let totalPrice = 0;
+
+                for (const productId in currentItems) {
+                    const productRef = firebase.firestore().collection("TVs").doc(productId);
+
+                    const productSnapshot = await productRef.get();
+
+                    if (productSnapshot.exists) {
+                        const product = productSnapshot.data();
+                        const quantity = currentItems[productId];
+
+                        totalPrice += product.Price * quantity;
+                    }
+                }
+
+                console.log("Total price: ", totalPrice);
+            } catch (error) {
+                console.error("Error calculating total price: ", error);
+            }
+        }
+
+
+
+
     </script>
     <script>
-        // JavaScript functions to handle increment and decrement
+
         let counter = 0;
 
         function increment() {

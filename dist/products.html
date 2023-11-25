@@ -35,7 +35,7 @@
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="products.html">Products</a></li>
                                 <li><a href="">Contacts</a></li>
-                                <li><a href="account.html">Account</a></li>
+                                <li><a href="">Account</a></li>
                                 <li><button class="btn" id="myBtn"><i class="fa fa-user"></i></button></li>
                                 <li><button class="btn" id="signOut"><i class="fa fa-sign-out"></i></button>
                                 </li>
@@ -54,7 +54,6 @@
     </div>
     <div id="myModal" class="modal">
 
-        <!-- Modal content -->
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close">&times;</span>
@@ -97,8 +96,6 @@
         </div>
     </div>
     <div id="myModal2" class="modal2">
-
-        <!-- Modal content -->
         <div class="modal-content2" id="modal-content2">
             <div class="modal2-header">
                 <span class="close2">&times;</span>
@@ -183,7 +180,6 @@
         </div>
     </div>
     <br><br><br>
-    <!-- footer -->
     <div class="footer">
         <div class="container">
             <div class="row">
@@ -226,7 +222,6 @@
             <p class="copyright">Copyright 2023 - Klasse Softwares</p>
         </div>
     </div>
-    <!-- js for toggle menu -->
     <script>
         var MenuItems = document.getElementById("MenuItems");
         MenuItems.style.maxHeight = "0px";
@@ -240,19 +235,15 @@
         }
     </script>
     <script>
-        // Get the modal
         var modal = document.getElementById("myModal");
         var modal2 = document.getElementById("myModal2");
 
-        // Get the button that opens the modal
         var btn = document.getElementById("myBtn");
         var btn2 = document.getElementById("myBtn2");
 
-        // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
         var span2 = document.getElementsByClassName("close2")[0];
 
-        // When the user clicks on the button, open the modal
         btn.onclick = function () {
             modal.style.display = "block";
         }
@@ -260,7 +251,6 @@
             modal2.style.display = "block";
         }
 
-        // When the user clicks on <span> (x), close the modal
         span.onclick = function () {
             modal.style.display = "none";
         }
@@ -268,7 +258,6 @@
             modal2.style.display = "none";
         }
 
-        // When the user clicks anywhere outside of the modal, close it
         window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
@@ -290,7 +279,6 @@
             }
         }
     </script>
-    <!-- js for toggle form -->
     <script>
         var loginform = document.getElementById("loginform");
         var registrationform = document.getElementById("registrationform");
@@ -320,7 +308,7 @@
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
 
-        import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+        import { getFirestore, doc, collection, addDoc, getDocs, getDoc, setDoc, updateDoc, arrayUnion } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
 
         import {
             createUserWithEmailAndPassword, signInWithEmailAndPassword,
@@ -345,6 +333,7 @@
         const googleProvider = new GoogleAuthProvider();
         const twitterProvider = new TwitterAuthProvider();
         const facebookProvider = new FacebookAuthProvider();
+        const user = auth.currentUser;
 
         const mModal2 = document.getElementById("myModal2");
         const mModal = document.getElementById("myModal");
@@ -368,13 +357,11 @@
         const brandFilterSelect = document.getElementById('brandFilter'); // Add this line
 
         async function fetchAndDisplayProducts(collectionName, brandName) {
-            // Clear previous content
             allProducts.innerHTML = '';
 
             if (collectionName === 'all') {
                 for (const querySnapshot of Object.values(querySnapshots)) {
                     querySnapshot.forEach((doc) => {
-                        // Check both collection and brand filters
                         if (brandName === 'all' || (doc.data().Brand === brandName)) {
                             displayProduct(doc);
                         }
@@ -383,7 +370,6 @@
             } else {
                 const querySnapshot = querySnapshots[collectionName];
                 querySnapshot.forEach((doc) => {
-                    // Check brand filter
                     if (brandName === 'all' || (doc.data().Brand === brandName)) {
                         displayProduct(doc);
                     }
@@ -394,11 +380,11 @@
         function displayProduct(doc) {
             const data = doc.data();
             const sanitizedProductId = encodeURIComponent(doc.id);
-            allProducts.innerHTML += `<div class="col-3" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);">
+            allProducts.innerHTML += `<a href="product-details.html?id=${sanitizedProductId}"><div class="col-3" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);">
                     <div>
                         <div style="padding: 10px 10px 10px 10px;">
                         <img src="${data.image1}" alt=""><br>
-                        <a href="product-details.html?id=${sanitizedProductId}"><h3>${doc.id}</h3></a><br>
+                        <h3>${doc.id}</h3><br>
                         <h3>${data.Brand}</h3>
                     </div>
                     </div>
@@ -415,21 +401,18 @@
                         </div><br>
                 <h5>KES ${data.Price.toLocaleString()}</h5></div>
                 </div>
-                <a href="" class="btn-c"><img src="Images/cart3.png" alt
+                <a href="" class="btn-c" id="addToCartLink" data-product-id=${doc.id}><img src="Images/cart3.png" alt
                  width="10px" height="30px"><br>Add to cart</a>
                 </div>
                 </div>
-            </div>`;
+            </div></a>`;
         }
 
-        // Event listener for changes in the select tags
         collectionFilterSelect.addEventListener('change', updateProducts);
-        brandFilterSelect.addEventListener('change', updateProducts); // Add this line
+        brandFilterSelect.addEventListener('change', updateProducts);
 
-        // Initial fetch and display with default values
         updateProducts();
 
-        // Function to update products based on user selections
         function updateProducts() {
             const selectedCollection = collectionFilterSelect.value || urlParams.get('collection') || 'all';
             const selectedBrand = brandFilterSelect.value || urlParams.get('brand') || 'all';
@@ -438,10 +421,8 @@
             url.searchParams.set('collection', selectedCollection);
             url.searchParams.set('brand', selectedBrand);
 
-            // Replace the current URL without reloading the page
             window.history.replaceState({}, '', url);
 
-            // Fetch and display products based on the updated parameters
             fetchAndDisplayProducts(selectedCollection, selectedBrand);
         }
 
@@ -490,25 +471,23 @@
         const userSignInTw = async () => {
             signInWithPopup(auth, twitterProvider)
                 .then((result) => {
-                    // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
-                    // You can use these server side with your app's credentials to access the Twitter API.
+
                     const credential = TwitterAuthProvider.credentialFromResult(result);
                     const token = credential.accessToken;
                     const secret = credential.secret;
 
-                    // The signed-in user info.
+
                     const user = result.user;
-                    // IdP data available using getAdditionalUserInfo(result)
-                    // ...
+
                 }).catch((error) => {
-                    // Handle Errors here.
+
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    // The email of the user's account used.
+
                     const email = error.customData.email;
-                    // The AuthCredential type that was used.
+
                     const credential = TwitterAuthProvider.credentialFromError(error);
-                    // ...
+
                 });
         }
         const userSignInFb = async () => {
@@ -519,19 +498,18 @@
                     const token = credential.accessToken;
                     const secret = credential.secret;
 
-                    // The signed-in user info.
+
                     const user = result.user;
-                    // IdP data available using getAdditionalUserInfo(result)
-                    // ...
+
                 }).catch((error) => {
-                    // Handle Errors here.
+
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    // The email of the user's account used.
+
                     const email = error.customData.email;
-                    // The AuthCredential type that was used.
+
                     const credential = TwitterAuthProvider.credentialFromError(error);
-                    // ...
+
                 });
         }
 
@@ -544,7 +522,7 @@
         var cartButton = document.getElementById("myBtn2");
 
         cartButton.addEventListener('click', function () {
-            // Check if the user is signed in
+
             var user = auth.currentUser;
 
             if (user) {
@@ -555,48 +533,161 @@
             }
         });
 
-        onAuthStateChanged(auth, (user) => {
+
+        const handleUserAuthentication = async (user) => {
             if (user) {
+
                 signOutButton.style.display = "block";
                 message.style.display = "block";
                 mButton.style.display = "none";
                 mModal.style.display = "none";
+                
 
-                const providerLogo = user.providerData[0].providerId.split('.')[0]; // Extract the provider name (google, facebook, twitter)
+                const providerLogo = user.providerData[0].providerId.split('.')[0];
                 let logoIconClass;
 
                 switch (providerLogo) {
                     case "google":
-                        logoIconClass = "fa fa-google rotating-icon"; // Font Awesome class for Google icon
+                        logoIconClass = "fa fa-google rotating-icon";
                         break;
                     case "facebook":
-                        logoIconClass = "fa fa-facebook rotating-icon"; // Font Awesome class for Facebook icon
+                        logoIconClass = "fa fa-facebook rotating-icon";
                         break;
                     case "twitter":
-                        logoIconClass = "fa-brands fa-x-twitter rotating-icon"; // Font Awesome class for Twitter icon
+                        logoIconClass = "fa-brands fa-x-twitter rotating-icon";
                         break;
                     default:
-                        logoIconClass = "fa fa-envelope rotating-icon"; // Default user icon (You can change this to any other default icon)
+                        logoIconClass = "fa fa-envelope rotating-icon";
                         break;
                 }
 
                 userName.innerHTML = `<div class="user-info" style="display: flex; align-items: center; justify-content: space-between">
-                <div class="user1-icon" style="margin-right: 10px; font-size: 30px;"><i class="fa fa-user"></i></div>
-                <div class="user-icon" style="margin-right: 10px; font-size: 30px;"><i class="${logoIconClass}"></i></div>
-                <div class="username" style="margin-left: auto;">${user.displayName}</div>
-            </div>`;
+    <div class="user1-icon" style="margin-right: 10px; font-size: 30px;"><i class="fa fa-user"></i></div>
+    <div class="user-icon" style="margin-right: 10px; font-size: 30px;"><i class="${logoIconClass}"></i></div>
+    <div class="username" style="margin-left: auto;">${user.displayName}</div>
+</div>`;
 
+
+                const userId = user.uid;
+                const cartRef = doc(db, 'Carts', userId);
+
+                try {
+                    const docSnapshot = await getDoc(cartRef);
+
+                    if (!docSnapshot.exists()) {
+                        const defaultCartData = {
+                            items: {},
+                        };
+
+                        await setDoc(cartRef, defaultCartData);
+                        console.log('Cart initialized for the user.');
+                    } else {
+                        console.log('Cart already exists for the user.');
+                    }
+                } catch (error) {
+                    console.error('Error initializing or checking cart: ', error);
+                }
             } else {
+
                 signOutButton.style.display = "none";
                 message.style.display = "none";
                 mButton.style.display = "block";
+                console.log('User not authenticated.');
             }
-        });
+        };
+
+
+        onAuthStateChanged(auth, handleUserAuthentication);
+
+        async function addToCart(doc) {
+            const productName = doc.id;
+            const userId = user.uid;
+            const cartRef = doc(db, 'Carts', userId);
+
+            try {
+
+                const cartSnapshot = await getDoc(cartRef);
+                let currentCartData;
+                if (!cartSnapshot.exists()) {
+                    const defaultCartData = {
+                        items: {},
+                    };
+                    await setDoc(cartRef, defaultCartData);
+                    currentCartData = defaultCartData;
+                } else {
+                    currentCartData = cartSnapshot.data();
+                }
+
+
+                if (currentCartData.items[productName]) {
+
+                    currentCartData.items[productName].quantity += 1;
+
+
+                    await setDoc(cartRef, currentCartData);
+
+                    console.log('Product quantity updated in the cart.');
+                } else {
+
+                    let productDocRef;
+                    if (productName.startsWith('TV')) {
+                        productDocRef = doc(db, 'TVs', productName);
+                    } else if (productName.startsWith('Phone')) {
+                        productDocRef = doc(db, 'Phones', productName);
+                    } else {
+                        productDocRef = doc(db, 'Fridges', productName);
+                    }
+
+                    const productDocSnapshot = await getDoc(productDocRef);
+
+                    if (productDocSnapshot.exists()) {
+                        const productDetails = productDocSnapshot.data();
+
+
+                        currentCartData.items[productName] = productDetails;
+
+
+                        await setDoc(cartRef, currentCartData);
+
+                        console.log('Product added to the cart.');
+                    } else {
+                        console.log('Product not found in Firestore.');
+                    }
+                }
+            } catch (error) {
+                console.error('Error adding product to cart: ', error);
+            }
+        }
+
+
+
+        const handleAddToCartClick = (event) => {
+            event.preventDefault();
+            const productId = `${doc.id}`;
+            addToCart(productId);
+        };
+
+
+        const addToCartLink = document.getElementById('addToCartLink');
+
+
+        addToCartLink.addEventListener('click', handleAddToCartClick);
+
 
         signInButton.addEventListener('click', userSignIn);
         signInTw.addEventListener('click', userSignInTw);
         signInFb.addEventListener('click', userSignInFb);
         signOutButton.addEventListener('click', userSignOut);
+
+
+        const incButton = document.querySelector('.inc');
+        const decButton = document.querySelector('.dec');
+
+        incButton.addEventListener("click", increment);
+        decButton.addEventListener("click", decrement);
+
+
+        document.addEventListener("DOMContentLoaded", updateCartDisplay);
 
     </script>
     <script>
